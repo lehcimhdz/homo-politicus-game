@@ -1,0 +1,150 @@
+events:
+  - id: cyber_attack_critical_infra
+    version: 1
+    name_es: "Ciberataque a infraestructura crítica"
+    tags: [security, tech, crisis]
+    trigger:
+      expression: "country.infra.state_ai_development > 0.3 OR country.security.foreign_disinfo_operations > 0.2"
+    probability_per_turn: 0.05
+    cooldown_turns: 20
+    flavor_text_es: |
+      Una APT extranjera derriba la red eléctrica nacional por 48 horas. Hospitales en
+      generadores, semáforos apagados, pánico bursátil.
+    effects:
+      infra.blackout_active: "true"
+      economy.gdp: "*0.97"
+      politics.popularity: "-0.05"
+
+  - id: climate_summit_invitation
+    version: 1
+    name_es: "Invitación a cumbre climática"
+    tags: [international, opportunity]
+    trigger:
+      expression: "country.security.diplomatic_prestige > 0.5"
+    probability_per_turn: 0.06
+    cooldown_turns: 30
+    flavor_text_es: |
+      ONU te invita como anfitrión de cumbre climática. Visibilidad mundial garantizada,
+      pero compromisos a cumplir.
+    effects:
+      security.diplomatic_prestige: "+0.10"
+      infra.climate_adaptation_investment: "+0.005"
+
+  - id: viral_corruption_video
+    version: 1
+    name_es: "Video viral de corrupción"
+    tags: [political, scandal]
+    trigger:
+      expression: "country.politics.administrative_corruption > 0.4"
+    probability_per_turn: 0.08
+    cooldown_turns: 10
+    flavor_text_es: |
+      Un video de un ministro contando billetes se viraliza. La oposición exige
+      renuncias. La fiscalía abre causa.
+    effects:
+      politics.scandal_corruption_severity: "+0.40"
+      politics.active_scandals: "+1"
+
+  - id: nobel_prize_citizen
+    version: 1
+    name_es: "Premio Nobel a un ciudadano"
+    tags: [welfare, opportunity]
+    trigger:
+      expression: "country.welfare.literacy_rate > 0.9"
+    probability_per_turn: 0.02
+    cooldown_turns: 60
+    flavor_text_es: |
+      Un científico/escritor del país gana el Nobel. Euforia nacional, soft power
+      mundial sube. El gobierno se sube al carro mediático.
+    effects:
+      politics.popularity: "+0.08"
+      security.soft_power_index: "+0.10"
+
+  - id: oil_discovery
+    version: 1
+    name_es: "Descubrimiento petrolero"
+    tags: [economic, opportunity]
+    trigger:
+      expression: "country.infra.fossil_fuel_dependency > 0.3"
+    probability_per_turn: 0.03
+    cooldown_turns: 50
+    flavor_text_es: |
+      Geólogos confirman un megacampo offshore. Reservas duplican en 5 años, pero
+      Dutch disease asoma.
+    effects:
+      infra.oil_gas_reserves: "*2.0"
+      economy.gdp: "*1.05"
+
+  - id: pension_crisis
+    version: 1
+    name_es: "Crisis previsional"
+    tags: [welfare, political]
+    trigger:
+      expression: "country.welfare.aging_index > 0.4"
+    probability_per_turn: 0.07
+    cooldown_turns: 25
+    flavor_text_es: |
+      El sistema jubilatorio colapsa por envejecimiento. Reforma impopular o quiebra.
+    effects:
+      politics.popularity: "-0.07"
+      welfare.general_strike_prob: "+0.10"
+
+  - id: separatist_referendum
+    version: 1
+    name_es: "Referéndum separatista"
+    tags: [political, regional, crisis]
+    trigger:
+      expression: "country.politics.regional_loyalty < 0.4"
+    probability_per_turn: 0.04
+    cooldown_turns: 40
+    flavor_text_es: |
+      Una provincia rica convoca referéndum de independencia unilateral. Crisis
+      institucional. La capital reacciona dura o blanda.
+    effects:
+      politics.polarization_index: "+0.15"
+
+  - id: pope_visit
+    version: 1
+    name_es: "Visita papal"
+    tags: [religious, welfare]
+    trigger:
+      expression: "country.welfare.clerical_political_influence > 0.3"
+    probability_per_turn: 0.02
+    cooldown_turns: 40
+    flavor_text_es: |
+      El Papa visita el país. Multitudes, mensaje político ambiguo del Vaticano,
+      polarización entre fans y críticos.
+    effects:
+      welfare.interreligious_tension: "-0.05"
+      politics.popularity: "+0.03"
+
+  - id: deepfake_president
+    version: 1
+    name_es: "Deepfake del presidente"
+    tags: [political, tech, scandal]
+    trigger:
+      expression: "country.security.fake_news_success_prob > 0.3"
+    probability_per_turn: 0.05
+    cooldown_turns: 12
+    flavor_text_es: |
+      Un deepfake muestra al presidente diciendo cosas comprometedoras. Aunque se
+      desmiente, el daño está hecho.
+    effects:
+      politics.scandal_corruption_severity: "+0.20"
+      politics.media_exposure_intensity: "+0.20"
+
+  - id: tech_unicorn_emerges
+    version: 1
+    name_es: "Surge un unicornio tech"
+    tags: [economic, tech, opportunity]
+    trigger:
+      expression: "country.infra.startup_ecosystem_strength > 0.4"
+    probability_per_turn: 0.04
+    cooldown_turns: 30
+    flavor_text_es: |
+      Una startup nacional alcanza valuación >$1B. Inversión extranjera, talento joven
+      retorna, prestige tech.
+    effects:
+      infra.startup_ecosystem_strength: "+0.10"
+      infra.innovation_index: "+0.05"
+      politics.popularity: "+0.03"
