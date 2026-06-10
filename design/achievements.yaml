@@ -1,0 +1,375 @@
+# Achievements / Logros — 40 totales
+# Cada uno con condición y rareza estimada (% jugadores que la obtienen).
+# Estructura compatible con Steam Achievements.
+
+version: 1
+
+achievements:
+  # === SUPERVIVENCIA (4) ===
+  - id: first_year
+    name_es: "Primer año"
+    name_en: "First year"
+    description_es: "Sobrevivir 12 turnos en cualquier modo"
+    description_en: "Survive 12 turns in any mode"
+    condition: "turn_count >= 12 AND end_condition == NONE"
+    rarity_pct: 60
+    icon: "trophy_bronze"
+
+  - id: decade_in_power
+    name_es: "Década en el poder"
+    name_en: "Decade in power"
+    description_es: "Sobrevivir 40 turnos"
+    description_en: "Survive 40 turns"
+    condition: "turn_count >= 40"
+    rarity_pct: 25
+    icon: "trophy_silver"
+
+  - id: historic
+    name_es: "Histórico"
+    name_en: "Historic"
+    description_es: "Sobrevivir 100 turnos"
+    description_en: "Survive 100 turns"
+    condition: "turn_count >= 100"
+    rarity_pct: 5
+    icon: "trophy_gold"
+
+  - id: iron_man_completed
+    name_es: "Iron man"
+    name_en: "Iron man"
+    description_es: "Terminar una partida Iron Man"
+    description_en: "Complete an Iron Man run"
+    condition: "iron_man_mode AND game_ended"
+    rarity_pct: 2
+    icon: "iron_helmet"
+
+  # === ECONÓMICO (5) ===
+  - id: economic_miracle
+    name_es: "Milagro económico"
+    name_en: "Economic miracle"
+    description_es: "GDP +50% sin entrar en recesión"
+    description_en: "GDP +50% without recession"
+    condition: "gdp_growth_cumulative >= 0.50 AND no_recession_during_game"
+    rarity_pct: 15
+    icon: "gdp_chart_up"
+
+  - id: asian_tiger
+    name_es: "Tigre asiático"
+    name_en: "Asian tiger"
+    description_es: "GDP +100% en 40 turnos"
+    description_en: "GDP +100% in 40 turns"
+    condition: "gdp_growth_cumulative >= 1.0 BY turn 40"
+    rarity_pct: 5
+    icon: "tiger"
+
+  - id: inflation_tamed
+    name_es: "Inflación controlada"
+    name_en: "Inflation tamed"
+    description_es: "Mantener inflación <3% durante 20 turnos"
+    description_en: "Keep inflation <3% for 20 turns"
+    condition: "inflation < 0.03 for 20 consecutive turns"
+    rarity_pct: 20
+    icon: "shield"
+
+  - id: default_d
+    name_es: "Default soberano"
+    name_en: "Sovereign default"
+    description_es: "Llegar a credit rating D"
+    description_en: "Reach credit rating D"
+    condition: "credit_rating == D"
+    rarity_pct: 8
+    icon: "rating_d"
+
+  - id: swf_titan
+    name_es: "Superávit"
+    name_en: "Surplus titan"
+    description_es: "Acumular SWF > $100M"
+    description_en: "Accumulate SWF > $100M"
+    condition: "sovereign_wealth_fund > 100000000"
+    rarity_pct: 12
+    icon: "vault"
+
+  # === POLÍTICO (5) ===
+  - id: landslide_reelection
+    name_es: "Reelección plebiscitaria"
+    name_en: "Landslide reelection"
+    description_es: "Ganar elección con >70% del voto"
+    description_en: "Win election with >70% vote"
+    condition: "election_won AND vote_share > 0.7"
+    rarity_pct: 18
+    icon: "ballot_check"
+
+  - id: rainbow_coalition
+    name_es: "Coalición arcoíris"
+    name_en: "Rainbow coalition"
+    description_es: "Mantener coalition_cohesion >0.8 durante 20 turnos"
+    description_en: "Keep coalition_cohesion >0.8 for 20 turns"
+    condition: "coalition_cohesion > 0.8 for 20 turns"
+    rarity_pct: 10
+    icon: "rainbow"
+
+  - id: constitutionalist
+    name_es: "Constitucionalista"
+    name_en: "Constitutionalist"
+    description_es: "Terminar con cero acciones autoritarias"
+    description_en: "End with zero authoritarian actions"
+    condition: "authoritarian_actions_count == 0 AND game_ended"
+    rarity_pct: 30
+    icon: "constitution_book"
+
+  - id: caudillo
+    name_es: "Caudillo"
+    name_en: "Caudillo"
+    description_es: "Acumular 10 acciones autoritarias"
+    description_en: "Accumulate 10 authoritarian actions"
+    condition: "authoritarian_actions_count >= 10"
+    rarity_pct: 22
+    icon: "fist"
+
+  - id: plebiscite_winner
+    name_es: "Plebiscito"
+    name_en: "Plebiscite winner"
+    description_es: "Convocar y ganar un referéndum"
+    description_en: "Call and win a referendum"
+    condition: "referendum_won == true"
+    rarity_pct: 14
+    icon: "vote_box"
+
+  # === CRISIS (5) ===
+  - id: crisis_tamer
+    name_es: "Domador de crisis"
+    name_en: "Crisis tamer"
+    description_es: "Resolver 5 decisiones críticas sin retroceder presiones"
+    description_en: "Resolve 5 critical decisions without pressure regression"
+    condition: "critical_decisions_resolved_clean >= 5"
+    rarity_pct: 16
+    icon: "phoenix"
+
+  - id: nuclear_survivor
+    name_es: "Sobreviviente nuclear"
+    name_en: "Nuclear survivor"
+    description_es: "Evitar nuclear strike teniendo nuclear_attack_prob > 0.5"
+    description_en: "Avoid nuclear strike with nuclear_attack_prob > 0.5"
+    condition: "max_nuclear_prob > 0.5 AND no_nuclear_strike"
+    rarity_pct: 11
+    icon: "dove_atomic"
+
+  - id: bloodless
+    name_es: "Sin sangre"
+    name_en: "Bloodless"
+    description_es: "Terminar guerra sin más de 1000 casualties"
+    description_en: "End war with fewer than 1000 casualties"
+    condition: "war_ended AND war_casualties < 1000"
+    rarity_pct: 8
+    icon: "olive_branch"
+
+  - id: lasting_peace
+    name_es: "Paz duradera"
+    name_en: "Lasting peace"
+    description_es: "30 turnos sin guerra ni guerra civil"
+    description_en: "30 turns without war or civil war"
+    condition: "no_war_for_30_turns"
+    rarity_pct: 25
+    icon: "white_flag"
+
+  - id: peacemaker
+    name_es: "Pacificador"
+    name_en: "Peacemaker"
+    description_es: "Resolver guerra civil mediante negociación"
+    description_en: "Resolve civil war via negotiation"
+    condition: "civil_war_ended_by_negotiation"
+    rarity_pct: 7
+    icon: "handshake"
+
+  # === ESCÁNDALOS (3) ===
+  - id: teflon
+    name_es: "Teflón"
+    name_en: "Teflon"
+    description_es: "Sobrevivir 5 escándalos sin caer bajo 40% popularidad"
+    description_en: "Survive 5 scandals without dropping below 40% popularity"
+    condition: "scandals_endured >= 5 AND popularity_never_below_0.40"
+    rarity_pct: 10
+    icon: "non_stick"
+
+  - id: houdini
+    name_es: "Houdini"
+    name_en: "Houdini"
+    description_es: "3 cover_up exitosos consecutivos"
+    description_en: "3 consecutive successful cover_ups"
+    condition: "consecutive_successful_coverups >= 3"
+    rarity_pct: 6
+    icon: "lock"
+
+  - id: martyr
+    name_es: "Mártir"
+    name_en: "Martyr"
+    description_es: "Aplicar apologize en 5 escándalos"
+    description_en: "Apply apologize on 5 scandals"
+    condition: "apologize_count >= 5"
+    rarity_pct: 14
+    icon: "halo"
+
+  # === DIPLOMÁTICO (4) ===
+  - id: soft_power
+    name_es: "Soft power"
+    name_en: "Soft power"
+    description_es: "Diplomatic prestige > 0.9"
+    description_en: "Diplomatic prestige > 0.9"
+    condition: "diplomatic_prestige > 0.9"
+    rarity_pct: 9
+    icon: "globe"
+
+  - id: regional_allies
+    name_es: "Aliados regionales"
+    name_en: "Regional allies"
+    description_es: "3 vecinos con relación >+0.5"
+    description_en: "3 neighbors with relations >+0.5"
+    condition: "neighbors_allied >= 3"
+    rarity_pct: 13
+    icon: "linked_hands"
+
+  - id: non_aligned
+    name_es: "Anti-imperialista"
+    name_en: "Non-aligned"
+    description_es: "Non aligned index > 0.8"
+    description_en: "Non aligned index > 0.8"
+    condition: "non_aligned_index > 0.8"
+    rarity_pct: 8
+    icon: "balance"
+
+  - id: trade_master
+    name_es: "Maestro de tratados"
+    name_en: "Treaty master"
+    description_es: "Firmar 5 FTA"
+    description_en: "Sign 5 FTAs"
+    condition: "fta_count >= 5"
+    rarity_pct: 11
+    icon: "scroll"
+
+  # === FIN DE PARTIDA (7) ===
+  - id: statesman
+    name_es: "Estadista"
+    name_en: "Statesman"
+    description_es: "Ranking final Estadista (>85)"
+    description_en: "Final ranking Statesman (>85)"
+    condition: "final_score > 85"
+    rarity_pct: 3
+    icon: "crown"
+
+  - id: voluntary_martyr
+    name_es: "Mártir popular"
+    name_en: "Voluntary martyr"
+    description_es: "Renunciar voluntariamente con popularidad > 70%"
+    description_en: "Resign voluntarily with popularity > 70%"
+    condition: "end_condition == TERM_COMPLETED AND popularity > 0.7"
+    rarity_pct: 4
+    icon: "olive_crown"
+
+  - id: ended_by_coup
+    name_es: "Coup d'état exitoso"
+    name_en: "Successful coup against you"
+    description_es: "Llegar a EndCondition::COUP_SUCCESS"
+    description_en: "Reach EndCondition::COUP_SUCCESS"
+    condition: "end_condition == COUP_SUCCESS"
+    rarity_pct: 35
+    icon: "tank"
+
+  - id: ended_by_nuke
+    name_es: "Aniquilación nuclear"
+    name_en: "Nuclear annihilation"
+    description_es: "EndCondition::NUCLEAR_ANNIHILATION"
+    description_en: "EndCondition::NUCLEAR_ANNIHILATION"
+    condition: "end_condition == NUCLEAR_ANNIHILATION"
+    rarity_pct: 2
+    icon: "mushroom_cloud"
+
+  - id: golden_exile
+    name_es: "Exilio dorado"
+    name_en: "Golden exile"
+    description_es: "EndCondition::EXILE con SWF > $50M"
+    description_en: "EndCondition::EXILE with SWF > $50M"
+    condition: "end_condition == EXILE AND swf > 50000000"
+    rarity_pct: 5
+    icon: "yacht"
+
+  - id: ended_by_assassination
+    name_es: "Magnicidio"
+    name_en: "Assassination"
+    description_es: "EndCondition::ASSASSINATION"
+    description_en: "EndCondition::ASSASSINATION"
+    condition: "end_condition == ASSASSINATION"
+    rarity_pct: 7
+    icon: "skull_crown"
+
+  - id: ended_by_revolution
+    name_es: "Revolución sobrevivida"
+    name_en: "Survived revolution"
+    description_es: "EndCondition::REVOLUTION resistiendo 5 turnos como acosado"
+    description_en: "EndCondition::REVOLUTION resisting 5 turns under siege"
+    condition: "end_condition == REVOLUTION AND revolution_duration >= 5"
+    rarity_pct: 9
+    icon: "torches"
+
+  # === ESCENARIOS HISTÓRICOS (5) ===
+  - id: argentina_1976_clean
+    name_es: "Argentina 1976: sin desaparecidos"
+    name_en: "Argentina 1976: no disappeared"
+    description_es: "Completar escenario sin acciones autoritarias"
+    description_en: "Complete scenario without authoritarian actions"
+    condition: "scenario == argentina_1976 AND authoritarian_actions == 0"
+    rarity_pct: 4
+    icon: "argentina_flag"
+
+  - id: cuba_1959_open
+    name_es: "Cuba 1959: economía abierta"
+    name_en: "Cuba 1959: open economy"
+    description_es: "Terminar con trade_balance positivo"
+    description_en: "End with positive trade balance"
+    condition: "scenario == cuba_1959 AND trade_balance > 0"
+    rarity_pct: 6
+    icon: "cuba_flag"
+
+  - id: venezuela_2013_no_hyperinflation
+    name_es: "Venezuela 2013: sin hiperinflación"
+    name_en: "Venezuela 2013: no hyperinflation"
+    description_es: "Evitar inflación >50x anual"
+    description_en: "Avoid hyperinflation (>50x annual)"
+    condition: "scenario == venezuela_2013 AND max_inflation < 50.0"
+    rarity_pct: 8
+    icon: "venezuela_flag"
+
+  - id: chile_1973_survives
+    name_es: "Chile 1973: sin Pinochet"
+    name_en: "Chile 1973: no Pinochet"
+    description_es: "Sobrevivir 11 de septiembre"
+    description_en: "Survive September 11"
+    condition: "scenario == chile_1973 AND survived_turn > 9"
+    rarity_pct: 12
+    icon: "chile_flag"
+
+  - id: singapur_1965_first_world
+    name_es: "Singapur 1965: salto al primer mundo"
+    name_en: "Singapore 1965: first world leap"
+    description_es: "Llegar a GDP per cápita > $10K"
+    description_en: "Reach GDP per capita > $10K"
+    condition: "scenario == singapur_1965 AND gdp_per_capita > 10000"
+    rarity_pct: 7
+    icon: "singapore_flag"
+
+  # === META (2) ===
+  - id: modder
+    name_es: "Modder"
+    name_en: "Modder"
+    description_es: "Cargar un mod custom"
+    description_en: "Load a custom mod"
+    condition: "custom_mod_loaded == true"
+    rarity_pct: 3
+    icon: "wrench"
+
+  - id: speedrun_collapse
+    name_es: "Speedrun colapso"
+    name_en: "Speedrun collapse"
+    description_es: "Terminar partida en menos de 10 turnos"
+    description_en: "End game in fewer than 10 turns"
+    condition: "end_condition != NONE AND turn_count < 10"
+    rarity_pct: 5
+    icon: "stopwatch"

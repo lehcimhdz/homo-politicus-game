@@ -1,0 +1,136 @@
+# Balance constants — tunable parameters
+# Estos valores deberían externalizarse del engine cuando se haga el loader YAML.
+# Cada cambio aquí afecta toda la experiencia del jugador.
+
+version: 1
+
+economy:
+  inflation:
+    base_rate: 0.03
+    popularity_penalty_per_pct_above_target: 0.02
+    target_rate: 0.03
+    hyperinflation_threshold: 0.50
+  recession:
+    quarters_for_active: 2
+    gdp_floor_multiplier: 0.70
+    growth_recovery_per_turn: 0.005
+  laffer_curve:
+    # tax_revenue_multiplier(tax_level) = 1 + a*x - b*x^2
+    a: 0.80
+    b: 0.60
+    optimum_at: 0.667
+  monetary:
+    print_inflation_per_pct: 1.2
+    interest_rate_max: 1.50
+    interest_rate_min: 0.00
+
+politics:
+  honeymoon:
+    initial_turns: 4
+    popularity_bonus_per_turn: 0.005
+  coup:
+    pressure_decay_per_turn: 0.05
+    attempts_history_multiplier: 0.05  # cada intento pasado sube prob futura
+  scandals:
+    cover_up_cost_multiplier: 10        # × lobbying_cost
+    cover_up_judicial_penalty: 0.15     # si falla
+    apologize_severity_factor: 0.80
+    apologize_cooldown_turns: 3
+    fatigue_per_turn: 0.02
+  pressures:
+    coup_threshold: 0.85
+    impeachment_threshold: 0.85
+    revolution_threshold: 0.90
+    exile_threshold: 0.90
+    lawfare_threshold: 0.85
+
+welfare:
+  pandemic:
+    base_severity_range: [0.20, 0.60]
+    duration_range_turns: [4, 12]
+    overflow_severity_step: 0.02
+    health_coverage_threshold_overflow: 0.40
+  famine:
+    base_severity_range: [0.30, 0.80]
+    duration_range_turns: [3, 8]
+  strike:
+    base_duration_turns: 2
+    economic_cost_per_turn: 1000000000
+
+security:
+  war:
+    casualty_per_turn_base: 10000
+    cost_per_turn_gdp_pct: 0.02
+    morale_drop_per_turn: 0.02
+  nuclear:
+    casualties_per_strike: 5000000
+    contamination_decay_per_turn: 0.01
+  intelligence:
+    leak_probability_base: 0.05
+    detection_probability_base: 0.40
+
+infra:
+  natural_disasters:
+    drought_severity_range: [0.30, 0.80]
+    storm_damage_per_severity: 5000000000
+    flood_damage_per_severity: 3000000000
+  energy:
+    blackout_duration_turns: [1, 4]
+    blackout_cost_per_turn: 500000000
+
+# Exploits conocidos y mitigaciones (a parchear)
+known_exploits:
+  - id: print_money_loop
+    description: "Print+ repetido permite emisión ilimitada sin colapso inmediato"
+    fix: "Cada print+ debe sumar inflation_curve_step exponencial, no lineal"
+    severity: high
+
+  - id: apologize_spam
+    description: "Apologize aplicado todos los turnos cancela cualquier escándalo"
+    fix: "Cooldown de 3 turnos + efecto decreciente por uso repetido"
+    severity: medium
+
+  - id: swf_overspend
+    description: "swf_spend no chequea balance, permite gastar más que el fondo"
+    fix: "Validar swf_balance >= amount antes de aplicar"
+    severity: medium
+
+  - id: threaten_no_consequence
+    description: "Amenazar al mismo vecino 5 veces solo baja relaciones a -1.0 y nada más"
+    fix: "Después de 3 amenazas sin acción, +0.15 invasion_prob real"
+    severity: low
+
+  - id: tax_no_laffer
+    description: "tax+ infinito sube linealmente; debería tener curva Laffer"
+    fix: "Aplicar laffer_curve para revenue real"
+    severity: high
+
+# Curvas de dificultad
+difficulty_curves:
+  estable:
+    initial_popularity: 0.70
+    initial_inflation: 0.02
+    initial_war_active: false
+    initial_active_scandals: 0
+    event_probability_multiplier: 0.7
+  fragil:
+    initial_popularity: 0.50
+    initial_inflation: 0.06
+    initial_war_active: false
+    initial_active_scandals: 0
+    hostile_neighbor: true
+    event_probability_multiplier: 1.0
+  en_crisis:
+    initial_popularity: 0.30
+    initial_inflation: 0.15
+    initial_in_recession: true
+    initial_active_scandals: 1
+    hostile_neighbor: true
+    event_probability_multiplier: 1.3
+  estado_fallido:
+    initial_popularity: 0.15
+    initial_inflation: 0.50
+    initial_civil_war_active: true
+    initial_active_scandals: 2
+    initial_war_active: true
+    event_probability_multiplier: 1.8
