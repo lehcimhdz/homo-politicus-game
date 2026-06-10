@@ -1,0 +1,234 @@
+events:
+  - id: commodity_boom
+    version: 1
+    name_es: "Boom de commodities"
+    name_en: "Commodity boom"
+    tags: [economic, opportunity]
+    trigger:
+      expression: "country.economy.commodity_supercycle > 0.2 AND country.economy.mining_concessions > 5"
+    probability_per_turn: 0.10
+    cooldown_turns: 8
+    flavor_text_es: |
+      Los precios internacionales del cobre, hierro y litio se han disparado. Las cotizaciones
+      mineras llenan tu tesorería sin esfuerzo. La trampa: tu industria local se siente "barata"
+      y se desindustrializa silenciosamente. Es el efecto holandés en marcha.
+    flavor_text_en: |
+      International prices of copper, iron and lithium have spiked. Mining royalties fill your
+      treasury effortlessly. The trap: your local industry feels "cheap" and silently deindustrializes.
+      Dutch disease in motion.
+    effects:
+      state_royalties: "*1.6"
+      gdp: "*1.04"
+      exchange_rate_stability: "+0.10"
+      industrial_power: "-0.05"
+    decision_branches:
+      - id: save_to_swf
+        label_es: "Ahorrar el excedente al SWF"
+        effects: { swf_deposit_rate: "+0.10", popularity: "-0.05" }
+      - id: spend_on_social
+        label_es: "Gastar en programas sociales"
+        effects: { popularity: "+0.10", inflation: "+0.02" }
+      - id: industrial_policy
+        label_es: "Subsidiar industria para evitar mal holandés"
+        effects: { industrial_power: "+0.10", state_royalties: "-0.20" }
+
+  - id: global_crash
+    version: 1
+    name_es: "Crash bursátil global"
+    name_en: "Global stock market crash"
+    tags: [economic, crisis, global]
+    trigger:
+      expression: "external_event AND country.economy.foreign_trade > 0.5"
+    probability_per_turn: 0.02
+    cooldown_turns: 30
+    flavor_text_es: |
+      Wall Street, Frankfurt y Shanghái se desploman simultáneamente. El miedo se contagia. Tu
+      moneda se devalúa por la fuga al dólar. Las exportaciones caen. Cualquier deuda en moneda
+      dura ahora pesa el doble.
+    flavor_text_en: |
+      Wall Street, Frankfurt and Shanghai crash simultaneously. Fear spreads. Your currency
+      devalues from flight to dollar. Exports fall. Any hard-currency debt now weighs double.
+    effects:
+      gdp: "*0.94"
+      growth_rate: "-0.05"
+      credit_rating_delta: -1
+      international_reserves: "*0.85"
+      exchange_rate_stability: "-0.20"
+    decision_branches:
+      - id: emergency_stimulus
+        label_es: "Paquete de estímulo de emergencia"
+        effects: { fiscal_deficit: "+0.05", popularity: "+0.10" }
+      - id: austerity
+        label_es: "Plan de ajuste fiscal"
+        effects: { popularity: "-0.15", credit_rating_delta: "+1" }
+      - id: capital_controls
+        label_es: "Controles de capital"
+        effects: { international_pressure: "+0.10", reserves: "+stability" }
+
+  - id: capital_flight
+    version: 1
+    name_es: "Fuga de capitales"
+    name_en: "Capital flight"
+    tags: [economic, financial]
+    trigger:
+      expression: "country.economy.capital_flight_risk > 0.5 OR country.politics.regime_legitimacy < 0.4"
+    probability_per_turn: 0.08
+    cooldown_turns: 6
+    flavor_text_es: |
+      Los grandes patrimonios corren al exterior. El dólar se vuelve carísimo. Las empresas paran
+      inversiones. El espacio fiscal se reduce. La oposición acusa al gobierno; el gobierno acusa
+      a la oposición.
+    flavor_text_en: |
+      Big fortunes flee abroad. Dollar becomes expensive. Firms freeze investment. Fiscal space
+      shrinks. Opposition blames government; government blames opposition.
+    effects:
+      international_reserves: "*0.7"
+      exchange_rate_stability: "-0.15"
+      fdi_inflow_gdp: "-0.02"
+      popularity: "-0.05"
+    decision_branches:
+      - id: capital_controls
+        label_es: "Controles de capital duros"
+        effects: { international_pressure: "+0.15", reserves: "stabilize" }
+      - id: orthodox_signal
+        label_es: "Señal pro-mercado (subir tasas)"
+        effects: { interest_rate: "+0.03", popularity: "-0.05" }
+      - id: do_nothing
+        label_es: "Esperar que pase"
+        effects: { reserves: "continue declining" }
+
+  - id: hyperinflation
+    version: 1
+    name_es: "Espiral hiperinflacionaria"
+    name_en: "Hyperinflation spiral"
+    tags: [economic, crisis, monetary]
+    trigger:
+      expression: "country.economy.inflation > 0.5 AND country.economy.monetary_emission > 0.3"
+    probability_per_turn: 0.05
+    cooldown_turns: 20
+    flavor_text_es: |
+      Los precios cambian dos veces por semana. Los supermercados retiran etiquetas. Los billetes
+      se vuelven inútiles antes de gastarse. La confianza en la moneda se evapora. Cualquier
+      ahorro pierde valor cada hora.
+    flavor_text_en: |
+      Prices change twice a week. Supermarkets remove labels. Bills become useless before spending.
+      Currency confidence evaporates. Any savings lose value every hour.
+    effects:
+      inflation: "+2.0"
+      growth_rate: "-0.08"
+      popularity: "-0.30"
+      poverty_rate: "+0.15"
+      regime_legitimacy: "-0.15"
+    decision_branches:
+      - id: dollarize
+        label_es: "Dolarización oficial"
+        effects: { inflation: "0.05", autonomy: "-0.50" }
+      - id: currency_reform
+        label_es: "Reforma monetaria (eliminar ceros)"
+        effects: { inflation: "*0.5 short-term", credibility: "-0.10" }
+      - id: heterodox_freeze
+        label_es: "Congelamiento de precios"
+        effects: { popularity: "+0.05 short", shortages: "+0.20" }
+
+  - id: industrial_strike
+    version: 1
+    name_es: "Huelga general industrial"
+    name_en: "General industrial strike"
+    tags: [economic, labor]
+    trigger:
+      expression: "country.welfare.union_strength > 0.6 AND country.welfare.unemployment_rate > 0.10"
+    probability_per_turn: 0.10
+    cooldown_turns: 12
+    flavor_text_es: |
+      Los sindicatos paralizan la producción. Las calles se llenan de manifestantes. La economía
+      pierde miles de millones por día. Los empresarios presionan por mano dura; los trabajadores
+      por reivindicaciones salariales.
+    flavor_text_en: |
+      Unions paralyze production. Streets fill with protesters. Economy loses billions per day.
+      Employers push for hard line; workers for wage demands.
+    effects:
+      gdp: "*0.97"
+      industrial_power: "-0.05"
+      strike_economic_cost: "+1000000000"
+      popularity: "-0.05"
+    decision_branches:
+      - id: negotiate_unions
+        label_es: "Negociar con sindicatos"
+        effects: { union_strength: "+0.05", minimum_wage: "+10%" }
+      - id: declare_essential_services
+        label_es: "Servicios esenciales por decreto"
+        effects: { strike_duration: "0", union_strength: "-0.10", polarization: "+0.10" }
+      - id: media_war
+        label_es: "Guerra mediática contra sindicatos"
+        effects: { narrative_reach: "use", polarization: "+0.15" }
+
+  - id: bank_run
+    version: 1
+    name_es: "Corrida bancaria sistémica"
+    name_en: "Systemic bank run"
+    tags: [economic, financial, crisis]
+    trigger:
+      expression: "country.economy.exchange_rate_stability < 0.3 AND country.politics.popularity < 0.4"
+    probability_per_turn: 0.03
+    cooldown_turns: 24
+    flavor_text_es: |
+      Filas frente a los bancos. ATMs vacíos. Un banco mediano quiebra. El pánico se contagia.
+      El Banco Central agota reservas inyectando liquidez.
+    flavor_text_en: |
+      Lines outside banks. Empty ATMs. A mid-size bank collapses. Panic spreads. Central Bank
+      depletes reserves injecting liquidity.
+    effects:
+      international_reserves: "*0.5"
+      credit_rating_delta: -2
+      popularity: "-0.15"
+      regime_legitimacy: "-0.10"
+    decision_branches:
+      - id: corralito
+        label_es: "Corralito (bloqueo de depósitos)"
+        effects: { popularity: "-0.25", international_pressure: "+0.15", run: "stops" }
+      - id: imf_rescue
+        label_es: "Llamar al FMI"
+        effects: { credit_rating_delta: "+2", popularity: "-0.10", policy_constraints: "+strict" }
+      - id: nationalize_banks
+        label_es: "Nacionalizar banca sistémica"
+        effects: { financial_power: "-0.30", popularity: "+0.05", investment_climate: "-0.20" }
+
+  - id: tech_bubble
+    version: 1
+    name_es: "Burbuja tecnológica revienta"
+    name_en: "Tech bubble bursts"
+    tags: [economic, global]
+    trigger:
+      expression: "external_event AND country.infra.startup_ecosystem_strength > 0.5"
+    probability_per_turn: 0.02
+    cooldown_turns: 40
+    flavor_text_es: |
+      Las valoraciones tech globales se desploman. Tu sector startup se contrae. Talento al
+      desempleo. Inversión en I+D huye.
+    flavor_text_en: |
+      Global tech valuations crash. Your startup sector contracts. Talent unemployed. R&D flees.
+    effects:
+      startup_ecosystem_strength: "-0.20"
+      private_rd_gdp: "-0.005"
+      employment_automation: "*0.8"
+      brain_drain: "+0.05"
+
+  - id: currency_attack
+    version: 1
+    name_es: "Ataque cambiario"
+    name_en: "Currency attack"
+    tags: [economic, financial]
+    trigger:
+      expression: "country.economy.international_reserves < gdp * 0.05"
+    probability_per_turn: 0.06
+    cooldown_turns: 18
+    flavor_text_es: |
+      Fondos especulativos apuestan en corto contra tu moneda. La presión es brutal. Cada
+      intervención del Banco Central agota más reservas.
+    flavor_text_en: |
+      Hedge funds short your currency. Pressure is brutal. Each Central Bank intervention drains
+      more reserves.
+    effects:
+      international_reserves: "*0.6"
+      exchange_rate_stability: "-0.30"
+      inflation: "+0.05"

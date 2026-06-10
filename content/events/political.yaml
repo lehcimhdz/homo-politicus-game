@@ -1,0 +1,201 @@
+events:
+  - id: star_minister_resigns
+    version: 1
+    name_es: "Renuncia de ministro estrella"
+    name_en: "Star minister resigns"
+    tags: [political, cabinet]
+    trigger:
+      expression: "country.politics.popularity < 0.45 AND country.politics.coalition_cohesion < 0.5"
+    probability_per_turn: 0.10
+    cooldown_turns: 6
+    flavor_text_es: |
+      Tu ministro estrella publica una carta de renuncia llena de críticas veladas. La prensa la
+      lee como una declaración de guerra interna. La calle especula con un próximo lanzamiento
+      político en tu contra.
+    flavor_text_en: |
+      Your star minister publishes a resignation letter full of veiled criticisms. Press reads
+      it as internal war declaration. Street speculates about an upcoming political launch against you.
+    effects:
+      coalition_cohesion: "-0.10"
+      popularity: "-0.07"
+      media_exposure_intensity: "+0.15"
+    decision_branches:
+      - id: deny_publicly
+        label_es: "Negar las diferencias públicamente"
+        effects: { polarization: "+0.05", popularity: "-0.03" }
+      - id: replace_with_loyalist
+        label_es: "Reemplazar con leal absoluto"
+        effects: { coalition_cohesion: "-0.05", congressional_support: "-0.05" }
+      - id: ofrecer_pacto
+        label_es: "Ofrecer pacto al renunciante"
+        effects: { popularity: "+0.03", regime_legitimacy: "+0.05" }
+
+  - id: legislative_defection
+    version: 1
+    name_es: "Defección legislativa masiva"
+    name_en: "Mass legislative defection"
+    tags: [political, legislative]
+    trigger:
+      expression: "country.politics.coalition_cohesion < 0.4"
+    probability_per_turn: 0.08
+    cooldown_turns: 10
+    flavor_text_es: |
+      Diez diputados de tu coalición pasan al frente opositor. La mayoría se evapora en un fin
+      de semana. Los próximos proyectos están en peligro.
+    flavor_text_en: |
+      Ten of your coalition MPs cross to the opposition front. Your majority evaporates in a
+      weekend. Upcoming bills are in jeopardy.
+    effects:
+      congressional_support: "-0.15"
+      coalition_cohesion: "-0.15"
+      opposition_seats: "+10"
+      law_blockade_prob: "+0.20"
+
+  - id: attentate_opposition
+    version: 1
+    name_es: "Atentado contra líder opositor"
+    name_en: "Attack on opposition leader"
+    tags: [political, security]
+    trigger:
+      expression: "country.politics.polarization_index > 0.75"
+    probability_per_turn: 0.02
+    cooldown_turns: 30
+    flavor_text_es: |
+      Disparan a un referente opositor. Sobrevive, pero la opinión pública te señala a vos.
+      Cualquier conexión con el atentado (real o inventada) puede destruirte.
+    flavor_text_en: |
+      An opposition figure is shot. They survive, but public opinion points at you. Any connection
+      to the attack (real or fabricated) can destroy you.
+    effects:
+      polarization_index: "+0.20"
+      popularity: "-0.15"
+      international_pressure: "+0.15"
+      judicial_pressure: "+0.10"
+    decision_branches:
+      - id: condemn_strongly
+        label_es: "Condenar enérgicamente, ofrecer ayuda"
+        effects: { popularity: "+0.05", polarization: "-0.05" }
+      - id: silence_and_distance
+        label_es: "Silencio incómodo"
+        effects: { judicial_pressure: "+0.10", popularity: "-0.05" }
+      - id: investigate_opposition
+        label_es: "Acusar a sectores opositores de autoatentado"
+        effects: { polarization: "+0.25", regime_legitimacy: "-0.10" }
+
+  - id: private_audio_leak
+    version: 1
+    name_es: "Filtración de audios privados"
+    name_en: "Private audio leak"
+    tags: [political, scandal]
+    trigger:
+      expression: "country.politics.media_exposure_intensity > 0.5 OR country.security.document_leak_prob > 0.3"
+    probability_per_turn: 0.07
+    cooldown_turns: 8
+    flavor_text_es: |
+      Salen al aire audios privados tuyos hablando mal de aliados, riéndote de promesas, o
+      revelando estrategia. Imposible negar la voz. La autenticidad es brutal.
+    flavor_text_en: |
+      Private audios surface of you bad-mouthing allies, laughing at promises, or revealing strategy.
+      Impossible to deny the voice. The authenticity is brutal.
+    effects:
+      popularity: "-0.10"
+      coalition_cohesion: "-0.10"
+      scandal_corruption_severity: "+0.30"
+      active_scandals: "+1"
+
+  - id: supreme_court_clash
+    version: 1
+    name_es: "Choque con Corte Suprema"
+    name_en: "Supreme Court clash"
+    tags: [political, judicial]
+    trigger:
+      expression: "country.politics.judicial_independence > 0.5 AND country.politics.auth_dem_axis > 0.4"
+    probability_per_turn: 0.10
+    cooldown_turns: 6
+    flavor_text_es: |
+      La Corte declara inconstitucional una de tus medidas insignia. Te plantea un dilema:
+      acatar (humillación) o desafiar (crisis institucional).
+    flavor_text_en: |
+      The Court rules unconstitutional one of your flagship measures. It poses a dilemma:
+      comply (humiliation) or defy (institutional crisis).
+    decision_branches:
+      - id: comply
+        label_es: "Acatar el fallo"
+        effects: { regime_legitimacy: "+0.05", popularity: "-0.05" }
+      - id: defy
+        label_es: "Desafiar el fallo"
+        effects: { regime_legitimacy: "-0.15", judicial_pressure: "+0.30", auth_dem_axis: "+0.10" }
+      - id: court_pack
+        label_es: "Ampliar la corte (court packing)"
+        effects: { democratic_backsliding: "+0.20", judicial_independence: "-0.30" }
+
+  - id: governors_pact_against
+    version: 1
+    name_es: "Pacto de gobernadores en contra"
+    name_en: "Governors' pact against you"
+    tags: [political, regional]
+    trigger:
+      expression: "country.politics.regional_loyalty < 0.5 AND country.politics.federal_budget_disparity > 0.3"
+    probability_per_turn: 0.06
+    cooldown_turns: 12
+    flavor_text_es: |
+      Cinco gobernadores firman un pacto público pidiendo más recursos, más autonomía, y
+      criticando tu manejo. Algunos especulan con su propia candidatura.
+    flavor_text_en: |
+      Five governors sign a public pact demanding more resources, more autonomy, criticizing
+      your management. Some hint at their own candidacy.
+    effects:
+      regional_loyalty: "-0.15"
+      coalition_cohesion: "-0.05"
+      separatism_prob: "+0.03"
+    decision_branches:
+      - id: redistribute_funds
+        label_es: "Redistribuir fondos federales"
+        effects: { regional_loyalty: "+0.15", fiscal_cost: "+1%GDP" }
+      - id: confront_publicly
+        label_es: "Confrontar públicamente"
+        effects: { polarization: "+0.10", regional_loyalty: "-0.10" }
+      - id: divide_and_conquer
+        label_es: "Comprar a 2 gobernadores"
+        effects: { fiscal_cost: "+0.5%GDP", coalition: "+stabilize" }
+
+  - id: pro_govt_mobilization
+    version: 1
+    name_es: "Movilización pro-gobierno espontánea"
+    name_en: "Spontaneous pro-government mobilization"
+    tags: [political, mass]
+    trigger:
+      expression: "country.politics.popularity > 0.6 AND country.politics.polarization_index > 0.6"
+    probability_per_turn: 0.08
+    cooldown_turns: 10
+    flavor_text_es: |
+      Cientos de miles toman las plazas en defensa del gobierno. La oposición denuncia "marcha
+      militante orquestada"; vos hablás de "el pueblo movilizado".
+    flavor_text_en: |
+      Hundreds of thousands fill plazas defending the government. Opposition denounces "orchestrated
+      militant march"; you speak of "people in motion".
+    effects:
+      popularity: "+0.05"
+      protest_pro_government: true
+      polarization_index: "+0.10"
+
+  - id: internal_migration_crisis
+    version: 1
+    name_es: "Crisis migratoria interna por desempleo"
+    name_en: "Internal migration crisis from unemployment"
+    tags: [political, regional, welfare]
+    trigger:
+      expression: "country.welfare.unemployment_rate > 0.15 AND country.politics.regional_gdp_gini > 0.4"
+    probability_per_turn: 0.08
+    cooldown_turns: 8
+    flavor_text_es: |
+      Familias enteras se mueven de regiones colapsadas a la capital buscando trabajo. Cinturones
+      de pobreza se expanden. La presión sobre servicios urbanos colapsa hospitales y escuelas.
+    flavor_text_en: |
+      Whole families move from collapsed regions to the capital seeking work. Poverty belts
+      expand. Pressure on urban services collapses hospitals and schools.
+    effects:
+      urban_population_ratio: "+0.05"
+      slum_growth: true
+      health_coverage: "-0.05"
+      crime_rate: "+0.10"

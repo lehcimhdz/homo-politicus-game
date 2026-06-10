@@ -1,0 +1,172 @@
+events:
+  - id: regional_pandemic
+    version: 1
+    name_es: "Pandemia regional"
+    name_en: "Regional pandemic"
+    tags: [welfare, crisis, global]
+    trigger:
+      expression: "external_event"
+    probability_per_turn: 0.03
+    cooldown_turns: 60
+    flavor_text_es: |
+      Un nuevo patógeno se expande por la región. Tu sistema de salud, ya tensionado, recibe
+      la oleada. Las decisiones próximas definen miles de muertes.
+    flavor_text_en: |
+      A new pathogen spreads through the region. Your health system, already strained, receives
+      the wave. Upcoming decisions define thousands of deaths.
+    effects:
+      pandemic_active: true
+      pandemic_severity: 0.4
+      pandemic_duration: 8
+    decision_branches:
+      - id: hard_lockdown
+        label_es: "Confinamiento estricto"
+        effects: { gdp: "*0.92", popularity: "+0.05 short", health: "+save lives" }
+      - id: soft_measures
+        label_es: "Recomendaciones suaves"
+        effects: { gdp: "*0.97", deaths: "+higher", popularity: "+0.05" }
+      - id: vaccine_blitz
+        label_es: "Compra masiva de vacunas"
+        effects: { fiscal_cost: "+2%GDP", us_alignment: "+0.05" }
+
+  - id: severe_drought
+    version: 1
+    name_es: "Sequía severa multianual"
+    name_en: "Severe multi-year drought"
+    tags: [natural, welfare, economic]
+    trigger:
+      expression: "country.infra.climate_vulnerability_index > 0.4"
+    probability_per_turn: 0.08
+    cooldown_turns: 15
+    flavor_text_es: |
+      Tres años sin lluvias normales. Cosechas perdidas, ganadería diezmada, ciudades racionando
+      agua. Migración interna desde el campo a las urbes.
+    flavor_text_en: |
+      Three years without normal rain. Crops lost, livestock decimated, cities rationing water.
+      Internal migration from countryside to cities.
+    effects:
+      drought_active: true
+      drought_severity: 0.6
+      drought_duration: 12
+      crop_loss_pct: 0.35
+      gdp: "*0.96"
+
+  - id: cat5_hurricane
+    version: 1
+    name_es: "Huracán categoría 5"
+    name_en: "Category 5 hurricane"
+    tags: [natural, crisis]
+    trigger:
+      expression: "country.infra.storm_prob > 0.10"
+    probability_per_turn: 0.05
+    cooldown_turns: 18
+    flavor_text_es: |
+      Huracán cat. 5 arrasa zonas costeras. 2300 muertos. Infraestructura destruida. Pedido
+      urgente de ayuda internacional.
+    flavor_text_en: |
+      Cat 5 hurricane devastates coast. 2,300 dead. Infrastructure destroyed. Urgent appeal for
+      international aid.
+    effects:
+      storm_active: true
+      storm_damage: 5000000000
+      storm_casualties: 2300
+      popularity: "-0.10"
+    decision_branches:
+      - id: declare_disaster
+        label_es: "Declarar zona de desastre"
+        effects: { international_aid: "+1B", fiscal_cost: "+1B" }
+      - id: military_deployment
+        label_es: "Desplegar ejército para reconstrucción"
+        effects: { troop_morale: "+0.05", popularity: "+0.10" }
+
+  - id: urban_epidemic
+    version: 1
+    name_es: "Brote epidémico urbano"
+    name_en: "Urban epidemic outbreak"
+    tags: [welfare]
+    trigger:
+      expression: "country.welfare.health_coverage < 0.5 OR country.infra.sanitation_coverage < 0.6"
+    probability_per_turn: 0.10
+    cooldown_turns: 10
+    flavor_text_es: |
+      Cólera/dengue/sarampión emerge en cinturones urbanos pobres. La OMS pide acción inmediata.
+      La oposición acusa abandono.
+    flavor_text_en: |
+      Cholera/dengue/measles emerges in poor urban belts. WHO demands immediate action. Opposition
+      accuses neglect.
+    effects:
+      epidemic_active: true
+      epidemic_severity: 0.3
+      epidemic_duration: 4
+      popularity: "-0.05"
+
+  - id: famine_crop_failure
+    version: 1
+    name_es: "Hambruna por falla de cosecha"
+    name_en: "Famine from crop failure"
+    tags: [welfare, crisis]
+    trigger:
+      expression: "country.welfare.poverty_rate > 0.4 AND (country.infra.drought_active OR country.economy.food_import_dependency > 0.6)"
+    probability_per_turn: 0.05
+    cooldown_turns: 30
+    flavor_text_es: |
+      El precio del pan duplica. Tres regiones reportan muertes por desnutrición. Las imágenes
+      destrozan tu gobierno.
+    flavor_text_en: |
+      Bread price doubles. Three regions report deaths by malnutrition. Images destroy your government.
+    effects:
+      famine_active: true
+      famine_severity: 0.7
+      famine_duration: 6
+      popularity: "-0.20"
+      international_pressure: "+0.20"
+
+  - id: refugee_crisis
+    version: 1
+    name_es: "Crisis migratoria por refugiados"
+    name_en: "Refugee migration crisis"
+    tags: [international, welfare]
+    trigger:
+      expression: "any_neighbor.in_crisis OR any_neighbor.civil_war_active"
+    probability_per_turn: 0.10
+    cooldown_turns: 10
+    flavor_text_es: |
+      Cien mil refugiados cruzan la frontera huyendo del vecino en crisis. Los campos se llenan.
+      La opinión pública se divide entre solidaridad y xenofobia.
+    flavor_text_en: |
+      One hundred thousand refugees cross the border fleeing the crisis-stricken neighbor. Camps
+      fill. Public opinion splits between solidarity and xenophobia.
+    effects:
+      migration_crisis_active: true
+      refugee_inflow: 100000
+      polarization_index: "+0.05"
+    decision_branches:
+      - id: open_doors
+        label_es: "Política de puertas abiertas"
+        effects: { soft_power: "+0.10", polarization: "+0.10" }
+      - id: closed_border
+        label_es: "Cerrar frontera"
+        effects: { diplomatic_prestige: "-0.05", popularity: "+0.05" }
+      - id: third_country_processing
+        label_es: "Procesamiento en terceros países"
+        effects: { international_pressure: "+stabilize" }
+
+  - id: major_earthquake
+    version: 1
+    name_es: "Terremoto mayor"
+    name_en: "Major earthquake"
+    tags: [natural, crisis]
+    trigger:
+      expression: "external_event"
+    probability_per_turn: 0.02
+    cooldown_turns: 30
+    flavor_text_es: |
+      Sismo de 7.8 en zona poblada. 5400 muertos. Edificios colapsados. Servicios básicos
+      interrumpidos.
+    flavor_text_en: |
+      Magnitude 7.8 quake in populated area. 5,400 dead. Buildings collapsed. Basic services disrupted.
+    effects:
+      casualty_count: "+5400"
+      infrastructure_depreciation_rate: "+0.05"
+      gdp: "*0.97"
+      international_aid: "+2B"

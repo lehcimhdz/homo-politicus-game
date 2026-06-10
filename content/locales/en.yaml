@@ -1,0 +1,80 @@
+locale: en
+version: 1
+
+ui:
+  app_title: "Homo Politicus"
+  welcome: "Welcome to Homo Politicus"
+  new_country: "A new country has been founded"
+  game_tick: "Game tick update"
+  command_prompt: "Command"
+  game_over_header: "GAME OVER"
+
+end_conditions:
+  NONE: "No end condition"
+  COUP_SUCCESS: "Successful military coup"
+  IMPEACHMENT: "Impeachment by congress"
+  REVOLUTION: "Popular revolution"
+  LAWFARE_REMOVAL: "Judicial removal (lawfare)"
+  ELECTION_LOSS: "Electoral defeat"
+  EXILE: "Exile under international pressure"
+  ASSASSINATION: "Assassination"
+  NUCLEAR_ANNIHILATION: "Nuclear annihilation"
+  TERM_COMPLETED: "Term completed"
+
+commands:
+  next: "Next turn"
+  exit: "Exit"
+  save: "Save game"
+  load: "Load game"
+  help: "Help"
+  status_brief: "Brief status"
+  decisions: "List pending decisions"
+  skip_decision: "Postpone decision"
+  tax_up: "Raise taxes"
+  tax_down: "Cut taxes"
+  cover_up: "Cover up scandal"
+  scapegoat: "Scapegoat"
+  counter_narrative: "Counter-narrative"
+  apologize: "Public apology"
+
+systems:
+  welfare: "Welfare and Society"
+  economy: "Economy and Finance"
+  politics: "Politics and Institutions"
+  security: "Security and Defense"
+  infra: "Infrastructure and Future"
+
+decisions:
+  coup_threat:
+    prompt: "High command threatens to seize power. Your response?"
+    options:
+      purge_military: "Purge the military"
+      negotiate_military: "Negotiate with high command"
+      cede_power: "Cede power"
+      resist: "Resist defiantly"
+  big_scandal:
+    prompt: "Major scandal on front pages. How do you react?"
+    options:
+      cover_up: "Cover up"
+      resign_minister: "Force minister to resign"
+      deny: "Deny everything"
+      accept_responsibility: "Accept responsibility"
+  congress_crisis:
+    prompt: "Congress threatens to remove you. What do you do?"
+    options:
+      call_referendum: "Call a referendum"
+      dissolve_congress: "Dissolve congress"
+      negotiate_coalition: "Negotiate coalition"
+      resign: "Resign"
+  neighbor_ultimatum:
+    prompt: "Hostile neighbor issues territorial ultimatum. How do you respond?"
+    options:
+      cede_territory: "Cede territory"
+      mobilize: "Military mobilization"
+      seek_mediation: "Seek international mediation"
+  nuclear_threat:
+    prompt: "Imminent nuclear attack risk. Your decision?"
+    options:
+      preemptive_strike: "Preemptive strike"
+      diplomatic_summit: "Diplomatic summit"
+      evacuate_cities: "Evacuate cities"

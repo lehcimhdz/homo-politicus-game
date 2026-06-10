@@ -1,0 +1,80 @@
+locale: es
+version: 1
+
+ui:
+  app_title: "Homo Politicus"
+  welcome: "Bienvenido a Homo Politicus"
+  new_country: "Se ha fundado un nuevo país"
+  game_tick: "Actualización del turno"
+  command_prompt: "Comando"
+  game_over_header: "FIN DE PARTIDA"
+
+end_conditions:
+  NONE: "Sin condición de fin"
+  COUP_SUCCESS: "Golpe militar exitoso"
+  IMPEACHMENT: "Destitución por el congreso"
+  REVOLUTION: "Revolución popular"
+  LAWFARE_REMOVAL: "Inhabilitación judicial (lawfare)"
+  ELECTION_LOSS: "Derrota electoral"
+  EXILE: "Exilio bajo presión internacional"
+  ASSASSINATION: "Magnicidio"
+  NUCLEAR_ANNIHILATION: "Aniquilación nuclear"
+  TERM_COMPLETED: "Mandato completado"
+
+commands:
+  next: "Siguiente turno"
+  exit: "Salir"
+  save: "Guardar partida"
+  load: "Cargar partida"
+  help: "Ayuda"
+  status_brief: "Resumen breve"
+  decisions: "Listar decisiones"
+  skip_decision: "Posponer decisión"
+  tax_up: "Subir impuestos"
+  tax_down: "Bajar impuestos"
+  cover_up: "Encubrir escándalo"
+  scapegoat: "Chivo expiatorio"
+  counter_narrative: "Contra-narrativa"
+  apologize: "Disculpas públicas"
+
+systems:
+  welfare: "Bienestar y Sociedad"
+  economy: "Economía y Finanzas"
+  politics: "Política e Instituciones"
+  security: "Seguridad y Defensa"
+  infra: "Infraestructura y Futuro"
+
+decisions:
+  coup_threat:
+    prompt: "El alto mando amenaza con tomar el poder. ¿Tu respuesta?"
+    options:
+      purge_military: "Purgar al ejército"
+      negotiate_military: "Negociar con el alto mando"
+      cede_power: "Ceder el poder"
+      resist: "Resistir desafiante"
+  big_scandal:
+    prompt: "Escándalo mayor en portada. ¿Cómo reaccionas?"
+    options:
+      cover_up: "Cubrir escándalo"
+      resign_minister: "Renunciar ministro"
+      deny: "Negar todo"
+      accept_responsibility: "Asumir responsabilidad"
+  congress_crisis:
+    prompt: "El congreso amenaza con destituirte. ¿Qué haces?"
+    options:
+      call_referendum: "Llamar a referéndum"
+      dissolve_congress: "Disolver el congreso"
+      negotiate_coalition: "Negociar coalición"
+      resign: "Renunciar"
+  neighbor_ultimatum:
+    prompt: "Un vecino hostil emite un ultimátum territorial. ¿Cómo respondes?"
+    options:
+      cede_territory: "Ceder territorio"
+      mobilize: "Movilización militar"
+      seek_mediation: "Buscar mediación internacional"
+  nuclear_threat:
+    prompt: "Riesgo de ataque nuclear inminente. ¿Tu decisión?"
+    options:
+      preemptive_strike: "Ataque preventivo"
+      diplomatic_summit: "Cumbre diplomática"
+      evacuate_cities: "Evacuar ciudades"

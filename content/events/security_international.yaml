@@ -1,0 +1,169 @@
+events:
+  - id: urban_terrorist_attack
+    version: 1
+    name_es: "Atentado terrorista urbano"
+    name_en: "Urban terrorist attack"
+    tags: [security, crisis]
+    trigger:
+      expression: "country.security.attack_detection_prob < 0.5 OR country.security.terrorism_detection_prob < 0.3"
+    probability_per_turn: 0.03
+    cooldown_turns: 20
+    flavor_text_es: |
+      Bomba en zona comercial. 47 muertos. El país está en shock. La presión por respuesta dura
+      es feroz. Cualquier paso en falso te cuesta caro.
+    flavor_text_en: |
+      Bomb in commercial area. 47 dead. The country is in shock. Pressure for hard response is fierce.
+      Any false step costs you dearly.
+    effects:
+      casualty_count: "+47"
+      popularity: "-0.10"
+      security_concerns: "+0.30"
+      civil_liberties_pressure: "+0.20"
+    decision_branches:
+      - id: emergency_powers
+        label_es: "Decretar estado de emergencia"
+        effects: { auth_dem_axis: "+0.15", emergency_active: true, civil_liberties: "-0.20" }
+      - id: investigate_thorough
+        label_es: "Investigación judicial seria"
+        effects: { judicial_independence: "+0.05", popularity: "-0.05 short-term" }
+      - id: scapegoat_minority
+        label_es: "Culpar a una minoría"
+        effects: { minority_protection: "-0.30", interreligious_tension: "+0.30", popularity: "+0.05" }
+
+  - id: capture_major_drug_lord
+    version: 1
+    name_es: "Captura de narcotraficante mayor"
+    name_en: "Major drug lord captured"
+    tags: [security, criminal]
+    trigger:
+      expression: "country.security.criminal_organizations >= 2 AND country.politics.administrative_corruption < 0.5"
+    probability_per_turn: 0.08
+    cooldown_turns: 8
+    flavor_text_es: |
+      Operación conjunta con DEA captura al jefe del cártel más poderoso. Euforia popular.
+      Pero el cártel queda acéfalo y la guerra de sucesión interna eleva la violencia.
+    flavor_text_en: |
+      Joint operation with DEA captures the most powerful cartel boss. Popular euphoria. But
+      cartel is headless and internal succession war raises violence.
+    effects:
+      popularity: "+0.10"
+      organized_crime_homicide_share: "+0.15"
+      homicide_rate: "+5"
+      us_alignment: "+0.05"
+
+  - id: border_incident
+    version: 1
+    name_es: "Frontera caliente con vecino"
+    name_en: "Hot border incident with neighbor"
+    tags: [security, international]
+    trigger:
+      expression: "any_neighbor.diplomatic_relations < -0.3"
+    probability_per_turn: 0.10
+    cooldown_turns: 6
+    flavor_text_es: |
+      Disparos en la frontera con un vecino hostil. Dos soldados nuestros muertos. La opinión
+      pública pide represalia. La diplomacia pide moderación.
+    flavor_text_en: |
+      Gunfire on the border with hostile neighbor. Two of our soldiers killed. Public opinion demands
+      reprisal. Diplomacy asks restraint.
+    effects:
+      neighbor_relations: "-0.15"
+      popular_pressure: "+0.10"
+      military_pressure: "+0.05"
+    decision_branches:
+      - id: military_response
+        label_es: "Respuesta militar limitada"
+        effects: { invasion_prob: "+0.15", popularity: "+0.05" }
+      - id: diplomatic_protest
+        label_es: "Protesta diplomática"
+        effects: { diplomatic_prestige: "+0.05" }
+      - id: silent_intel_op
+        label_es: "Operación de inteligencia encubierta"
+        effects: { espionage_budget: "+10M", risk: "blowback" }
+
+  - id: human_rights_sanctions
+    version: 1
+    name_es: "Sanciones por DD.HH."
+    name_en: "Human rights sanctions"
+    tags: [international, sanctions]
+    trigger:
+      expression: "country.welfare.torture_index > 0.3 OR country.welfare.forced_disappearances > 0.1"
+    probability_per_turn: 0.10
+    cooldown_turns: 12
+    flavor_text_es: |
+      La UE y EEUU imponen sanciones específicas a funcionarios. Tu cumbre internacional próxima
+      queda en duda. Empresarios cierran cuentas en bancos extranjeros.
+    flavor_text_en: |
+      EU and US impose targeted sanctions on officials. Your upcoming international summit is in doubt.
+      Businesspeople close foreign bank accounts.
+    effects:
+      sanctions_tier: "+1"
+      diplomatic_prestige: "-0.10"
+      capital_flight_risk: "+0.10"
+      us_alignment: "-0.15"
+
+  - id: espionage_discovered
+    version: 1
+    name_es: "Espionaje extranjero descubierto"
+    name_en: "Foreign espionage discovered"
+    tags: [security, intelligence]
+    trigger:
+      expression: "country.security.foreign_disinfo_operations > 0.3"
+    probability_per_turn: 0.05
+    cooldown_turns: 15
+    flavor_text_es: |
+      Tu contrainteligencia desbarata una red de espionaje extranjero. Tres diplomáticos
+      expulsados. El país denunciado niega todo. Crisis diplomática inminente.
+    flavor_text_en: |
+      Counterintelligence dismantles a foreign spy network. Three diplomats expelled. Denouncing
+      country denies all. Imminent diplomatic crisis.
+    effects:
+      humint_capability: "+0.05"
+      diplomatic_crisis_active: true
+      popularity: "+0.05"
+
+  - id: superpower_visit
+    version: 1
+    name_es: "Visita de superpotencia"
+    name_en: "Superpower visit"
+    tags: [international, diplomatic]
+    trigger:
+      expression: "country.security.diplomatic_prestige > 0.5"
+    probability_per_turn: 0.05
+    cooldown_turns: 24
+    flavor_text_es: |
+      Llega el líder de USA/China/Rusia. La visita trae inversión potencial, pero te empuja a
+      una alineación visible. La opinión pública está dividida.
+    flavor_text_en: |
+      USA/China/Russia leader arrives. Visit brings potential investment but pushes you to
+      visible alignment. Public opinion is divided.
+    decision_branches:
+      - id: align_western
+        label_es: "Alinearse con USA/EU"
+        effects: { us_alignment: "+0.20", non_aligned_index: "-0.15", fdi_inflow: "+0.02" }
+      - id: align_china
+        label_es: "Alinearse con China"
+        effects: { china_alignment: "+0.20", non_aligned_index: "-0.15", chinese_investment: "+strong" }
+      - id: keep_neutral
+        label_es: "Mantener neutralidad"
+        effects: { non_aligned_index: "+0.10", investment: "minimal" }
+
+  - id: regional_summit_failure
+    version: 1
+    name_es: "Cumbre regional fracasada"
+    name_en: "Failed regional summit"
+    tags: [international, diplomatic]
+    trigger:
+      expression: "country.security.multilateral_leadership > 0.4"
+    probability_per_turn: 0.04
+    cooldown_turns: 16
+    flavor_text_es: |
+      La cumbre que organizaste termina sin declaración conjunta. Los medios la pintan como
+      bochorno. Otros países te culpan por la división.
+    flavor_text_en: |
+      The summit you organized ends without joint declaration. Media frames it as embarrassment.
+      Other countries blame you for division.
+    effects:
+      diplomatic_prestige: "-0.10"
+      multilateral_leadership: "-0.10"
+      popularity: "-0.03"
