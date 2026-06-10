@@ -1,0 +1,63 @@
+locale: pt
+version: 1
+
+ui:
+  app_title: "Homo Politicus"
+  welcome: "Bem-vindo a Homo Politicus"
+  new_country: "Um novo país foi fundado"
+  game_tick: "Atualização do turno"
+  command_prompt: "Comando"
+  game_over_header: "FIM DE JOGO"
+  turn_prefix: "Turno"
+  pop_short: "Pop:"
+
+end_conditions:
+  NONE: "Sem condição de fim"
+  COUP_SUCCESS: "Golpe militar bem-sucedido"
+  IMPEACHMENT: "Impeachment pelo congresso"
+  REVOLUTION: "Revolução popular"
+  LAWFARE_REMOVAL: "Inabilitação judicial (lawfare)"
+  ELECTION_LOSS: "Derrota eleitoral"
+  EXILE: "Exílio sob pressão internacional"
+  ASSASSINATION: "Assassinato"
+  NUCLEAR_ANNIHILATION: "Aniquilação nuclear"
+  TERM_COMPLETED: "Mandato completado"
+
+commands:
+  next: "Próximo turno"
+  exit: "Sair"
+  save: "Salvar jogo"
+  load: "Carregar jogo"
+  help: "Ajuda"
+  status_brief: "Resumo breve"
+  decisions: "Listar decisões"
+  skip_decision: "Adiar decisão"
+  tax_up: "Aumentar impostos"
+  tax_down: "Reduzir impostos"
+  cover_up: "Encobrir escândalo"
+  scapegoat: "Bode expiatório"
+  counter_narrative: "Contra-narrativa"
+  apologize: "Desculpas públicas"
+
+systems:
+  welfare: "Bem-estar e Sociedade"
+  economy: "Economia e Finanças"
+  politics: "Política e Instituições"
+  security: "Segurança e Defesa"
+  infra: "Infraestrutura e Futuro"
+
+decisions:
+  coup_threat:
+    prompt: "O alto comando ameaça tomar o poder. Sua resposta?"
+    options:
+      purge_military: "Expurgar o exército"
+      negotiate_military: "Negociar com o alto comando"
+      cede_power: "Ceder o poder"
+      resist: "Resistir desafiadoramente"
+  big_scandal:
+    prompt: "Grande escândalo nas manchetes. Como você reage?"
+    options:
+      cover_up: "Encobrir"
+      resign_minister: "Forçar renúncia de ministro"
+      deny: "Negar tudo"
+      accept_responsibility: "Assumir responsabilidade"
