@@ -1,0 +1,70 @@
+id: de_klerk
+version: 1
+name_es: "F.W. de Klerk"
+name_en: "F.W. de Klerk"
+country_origin: "South Africa"
+years_active: "1989-1994"
+
+bio_short_es: |
+  Último presidente del régimen del apartheid. Liberó a Mandela, legalizó el ANC, lideró las
+  negociaciones que terminaron pacíficamente con el sistema. Premio Nobel compartido (1993).
+
+bio_short_en: |
+  Last apartheid president. Freed Mandela, legalized the ANC, led negotiations that peacefully
+  ended the system. Shared Nobel Prize (1993).
+
+bio_long_es: |
+  Abogado afrikáner conservador, ministro de Educación bajo Botha. Asumió presidencia en 1989
+  ante un país aislado internacionalmente, economía estancada, guerra civil de baja intensidad,
+  y URSS en colapso (lo que quitó el argumento "anti-comunismo" del régimen).
+
+  Su discurso al parlamento 2/2/1990 anunció: legalización del ANC y PAC, liberación de Mandela
+  (11 días después), levantamiento del estado de emergencia. Inició el proceso de negociación
+  CODESA (1991-93) que produjo la constitución interina y elecciones democráticas 1994.
+
+  Vicepresidente bajo Mandela (1994-96). Premio Nobel compartido con Mandela (1993). Su rol es
+  polémico: para algunos es un héroe pragmático; para otros, un cómplice del apartheid que negoció
+  cuando ya no había alternativa. La verdad probablemente está en el medio.
+
+personality_traits:
+  - "pragmatist"
+  - "reformer_late"
+  - "lawyer"
+  - "afrikaner"
+  - "negotiator"
+
+starting_modifiers:
+  popularity: -0.10
+  regime_legitimacy: -0.10
+  press_freedom: -0.10
+  diplomatic_prestige: +0.15  # Por reformar
+  international_pressure: -0.20  # Lifting sanctions
+  authoritarianism_prob: -0.20
+  minority_protection: +0.20
+
+unique_actions:
+  - id: "release_political_prisoners"
+    name_es: "Liberar presos políticos"
+    effect: "polarization -0.15, regime_legitimacy +0.10, international_pressure -0.20"
+  - id: "legalize_opposition"
+    name_es: "Legalizar oposición"
+    effect: "press_freedom +0.20, opposition_seats +20, polarization -0.10"
+  - id: "codesa_negotiations"
+    name_es: "Convocar CODESA"
+    effect: "regime_legitimacy +0.15, transition_path enabled"
+  - id: "dismantle_nuclear_program"
+    name_es: "Desmantelar programa nuclear"
+    effect: "nuclear_capability removed, us_alignment +0.15"
+
+nemesis_traits:
+  - description_es: "Tu propia base afrikáner te ve como traidor"
+    effect: "popularity in core constituency drops sharply"
+  - description_es: "El proceso de reforma puede descarrilarse en violencia"
+    effect: "if reforms too fast, conflict_with_groups +0.20"
+
+historical_starting_year: 1989
+
+trivia_es: |
+  - Sudáfrica desmanteló sus 6 armas nucleares: único país que renunció a programa propio existente.
+  - De Klerk reconoció en 1996 ante la TRC que el apartheid fue "moralmente injustificable".
+  - Murió en 2021 a los 85 años; cremado, sin funeral de estado.

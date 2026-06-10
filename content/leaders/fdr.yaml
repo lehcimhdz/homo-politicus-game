@@ -1,0 +1,73 @@
+id: fdr
+version: 1
+name_es: "Franklin Delano Roosevelt"
+name_en: "Franklin Delano Roosevelt"
+country_origin: "United States"
+years_active: "1933-1945"
+
+bio_short_es: |
+  Cuatro veces presidente de EEUU (récord absoluto). Aplicó el New Deal contra la Gran Depresión,
+  llevó a EEUU a la 2GM, diseñó la ONU. Discapacitado por polio, lo ocultó al público.
+
+bio_short_en: |
+  Four-term US President (absolute record). Applied the New Deal against the Great Depression,
+  led US into WWII, designed the UN. Disabled by polio, hid it from public.
+
+bio_long_es: |
+  Hijo de élite neoyorkina, primo lejano de Theodore Roosevelt. Asambleísta, subsecretario de
+  Marina, candidato a vicepresidente derrotado 1920. Atacado por polio 1921, perdió uso de
+  piernas. Volvió a la política como gobernador de NY 1929-32.
+
+  Ganó la presidencia en 1932 contra Hoover (catastróficamente impopular por la Depresión).
+  El New Deal (1933-39) reformó capitalismo americano: Securities Act, Glass-Steagall, Social
+  Security, Wagner Act (sindicatos), CCC, WPA, TVA. Polémico: la Corte Suprema lo bloqueó
+  inicialmente; FDR intentó court-packing 1937 (fracasó políticamente).
+
+  2GM: declaración tras Pearl Harbor (1941). Alianza con Churchill y Stalin. Diseñó Bretton Woods
+  y la ONU antes de morir en abril 1945, tres semanas antes de la rendición alemana.
+
+personality_traits:
+  - "pragmatist"
+  - "progressive"
+  - "great_communicator"  # Fireside chats
+  - "interventionist"
+  - "war_leader"
+
+starting_modifiers:
+  popularity: +0.15
+  regime_legitimacy: +0.15
+  economic_ideology: -0.15
+  social_ideology: -0.10
+  union_strength: +0.20
+  central_bank_autonomy: +0.10
+  congressional_support: +0.15
+  diplomatic_prestige: +0.10
+  soft_power_index: +0.15
+  fiscal_expansion_modifier: +0.30
+
+unique_actions:
+  - id: "new_deal_package"
+    name_es: "Paquete New Deal completo"
+    effect: "unemployment -0.10, popularity +0.20, debt_to_gdp +0.20"
+  - id: "fireside_chat"
+    name_es: "Charla junto al fuego (radio)"
+    effect: "narrative_reach +0.10, popularity +0.05 (per use)"
+  - id: "court_packing_attempt"
+    name_es: "Intento de court packing"
+    effect: "regime_legitimacy -0.15, judicial_independence -0.05, popularity -0.10"
+  - id: "lend_lease"
+    name_es: "Programa Lend-Lease"
+    effect: "us_alignment ally_boost, fiscal_cost +1%GDP"
+
+nemesis_traits:
+  - description_es: "Tu intervencionismo polariza a la élite empresarial"
+    effect: "industrial_power lobby_against_you, increased over time"
+  - description_es: "Tu salud te perseguirá durante la guerra"
+    effect: "after turn 12, randomized health crisis events"
+
+historical_starting_year: 1933
+
+trivia_es: |
+  - Único presidente electo 4 veces (la 22 enmienda limitó después a dos).
+  - Eleanor Roosevelt redefinió el rol de primera dama.
+  - Murió antes del fin de la guerra; sucedido por Truman.

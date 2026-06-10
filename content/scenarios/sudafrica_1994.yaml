@@ -1,0 +1,105 @@
+id: sudafrica_1994
+version: 1
+name_es: "Sudáfrica 1994 — Mandela asume"
+name_en: "South Africa 1994 — Mandela takes office"
+start_year: 1994
+start_turn: 0
+difficulty: "★★★★☆"
+
+description_es: |
+  Mayo de 1994. Nelson Mandela asume tras las primeras elecciones multirraciales. El apartheid ha
+  terminado. Pero la economía sigue en manos blancas (el 13% de la población posee el 87% de los
+  activos), la criminalidad estalla, el HIV/AIDS amenaza colapsar la salud pública, los blancos
+  emigran o se atrincheran. Tenés que evitar la guerra civil racial Y reconstruir un país.
+
+description_en: |
+  May 1994. Nelson Mandela takes office after first multiracial elections. Apartheid is over. But
+  the economy remains in white hands (13% of population owns 87% of assets), crime explodes,
+  HIV/AIDS threatens to collapse public health, whites emigrate or barricade. You must prevent
+  racial civil war AND rebuild a country.
+
+narrative_intro_es: |
+  Sos Mandela. 27 años preso. Premio Nobel. Símbolo mundial. Y ahora, presidente de un país
+  partido. Tu prioridad: evitar la guerra civil que casi todos los analistas predicen. Tu desafío:
+  redistribuir sin asustar al capital, integrar sin venganza, sanar 350 años de racismo.
+
+  En la historia real elegiste la reconciliación (Comisión de la Verdad). Pero hay otras opciones:
+  redistribución radical estilo Zimbabwe, modelo socialdemócrata escandinavo, o autoritarismo
+  africano clásico.
+
+initial_country:
+  welfare:
+    population: 40000000
+    poverty_rate: 0.55
+    literacy_rate: 0.82
+    primary_enrollment: 0.85
+    secondary_enrollment: 0.45
+    university_enrollment: 0.12
+    health_coverage: 0.30
+    unemployment_rate: 0.30
+    general_strike_prob: 0.25
+    interreligious_tension: 0.10
+    torture_index: 0.05
+    forced_disappearances: 0.10
+    freedom_of_expression: 0.75
+    minority_protection: 0.50
+    un_score: 0.85
+    aging_index: 0.10
+  economy:
+    gdp: 135000000000
+    inflation: 0.09
+    growth_rate: 0.022
+    international_reserves: 3000000000
+    interest_rate: 0.13
+    central_bank_autonomy: 0.65
+    debt_to_gdp_ratio: 0.40
+    credit_rating: 4
+    tax_collection: 30000000000
+    mining_concessions: 15
+    food_import_dependency: 0.20
+  politics:
+    popularity: 0.65
+    auth_dem_axis: 0.10
+    economic_ideology: 0.40
+    social_ideology: 0.40
+    authoritarianism_prob: 0.05
+    coup_d_etat_prob: 0.08
+    civilian_military_control: 0.55
+    administrative_corruption: 0.25
+    polarization_index: 0.75
+    revolution_prob: 0.05
+    judicial_independence: 0.75
+    press_freedom: 0.80
+    regime_legitimacy: 0.85
+    congressional_support: 0.65
+    opposition_seats: 35
+  security:
+    troop_morale: 0.55
+    military_spending_gdp: 0.025
+    non_state_groups: 3
+    diplomatic_prestige: 0.80
+    soft_power_index: 0.70
+    us_alignment: 0.55
+    homicide_rate: 65.0
+  infra:
+    pollution_prob: 0.45
+    co2_emissions: 350000000
+    fossil_fuel_dependency: 0.92
+    renewables_percentage: 0.01
+    state_ai_development: 0.0
+
+objectives:
+  bronce:
+    description_es: "Evitar guerra civil 12 turnos"
+  plata:
+    description_es: "Reducir desempleo a <20% al turno 20"
+  oro:
+    description_es: "Comisión Verdad exitosa: polarización <0.5 al turno 16"
+  diamante:
+    description_es: "Lográ economía equitativa: regional_gdp_gini <0.4 al turno 24"
+
+historical_notes_es: |
+  - Mandela gobernó 1994-99 (un solo término por elección propia).
+  - Comisión de la Verdad y Reconciliación (1996) lideró por Desmond Tutu.
+  - HIV/AIDS mal gestionada por Mbeki tras Mandela (300.000+ muertes evitables).
+  - Sudáfrica 2024: ANC en crisis tras 30 años de poder, desigualdad récord mundial.

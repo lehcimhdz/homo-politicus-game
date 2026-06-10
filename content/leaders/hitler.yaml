@@ -1,0 +1,88 @@
+id: hitler
+version: 1
+name_es: "Adolf Hitler"
+name_en: "Adolf Hitler"
+country_origin: "Germany"
+years_active: "1933-1945"
+
+bio_short_es: |
+  Líder del partido nazi, canciller (1933-45) y Führer (1934-45). Responsable del Holocausto
+  (6 millones de judíos asesinados) y de la 2GM (50+ millones de muertos). Caso de estudio del
+  fracaso del centro liberal frente al fascismo.
+
+bio_short_en: |
+  Nazi party leader, chancellor (1933-45) and Führer (1934-45). Responsible for the Holocaust
+  (6 million Jews murdered) and WWII (50+ million dead). Case study of liberal centrism's failure
+  vs fascism.
+
+bio_long_es: |
+  Austríaco, fracasado pintor, veterano 1GM, militante en partido marginal nacionalista. Intentó
+  el Putsch de Múnich 1923 (fracaso), preso, escribió Mein Kampf. NSDAP creció con la Depresión:
+  de 2.6% en 1928 a 37% en julio 1932 (mayor partido).
+
+  Hindenburg lo designó canciller 30/1/1933. En seis meses: incendio Reichstag (febrero), Ley
+  Habilitante (marzo), disolución sindicatos (mayo), partido único (julio), control absoluto.
+  Tras muerte de Hindenburg (1934), fusionó cargos: Führer. Persecución progresiva: leyes de
+  Núremberg (1935), Kristallnacht (1938), invasión de Polonia (1939) → 2GM. Solución Final desde
+  1942: campos de exterminio sistemáticos.
+
+  Suicidio 30/4/1945 en bunker de Berlín, dos días antes de la rendición.
+
+  **Nota del juego:** este líder está disponible exclusivamente como **antagonista** en el
+  escenario "Alemania 1933 — La encrucijada". No es jugable como héroe.
+
+personality_traits:
+  - "fascist"
+  - "demagogue"
+  - "genocidal"
+  - "war_criminal"
+  - "antagonist_only"
+
+starting_modifiers:
+  popularity: +0.10
+  auth_dem_axis: +0.50
+  authoritarianism_prob: +0.60
+  polarization_index: +0.40
+  press_freedom: -0.50
+  judicial_independence: -0.40
+  minority_protection: -0.70
+  torture_index: +0.50
+  forced_disappearances: +0.50
+  international_pressure: +0.30
+  diplomatic_prestige: -0.30
+  war_propensity: +0.50
+
+unique_actions:
+  - id: "enabling_act"
+    name_es: "Ley Habilitante (1933)"
+    effect: "auth_dem_axis +0.30, congressional_support absoluto"
+  - id: "nuremberg_laws"
+    name_es: "Leyes de Núremberg"
+    effect: "minority_protection -0.50, polarization +0.30"
+  - id: "rearmament"
+    name_es: "Rearmamento masivo"
+    effect: "military_spending_gdp +0.06, employment -0.10"
+  - id: "annexation_neighbor"
+    name_es: "Anexión vecina (Anschluss/Sudetes)"
+    effect: "gdp +5%, invasion_prob_global +0.30, popularity +0.10"
+
+nemesis_traits:
+  - description_es: "Cada conquista genera coalición contraria mundial"
+    effect: "after 3 territorial gains, global coalition forms"
+  - description_es: "Tu obsesión racial sangra recursos del esfuerzo bélico"
+    effect: "war_efficiency reduced by holocaust_resources_diverted"
+  - description_es: "Generales conspiran contra ti"
+    effect: "military_insubordination_prob escalates after war start"
+
+historical_starting_year: 1933
+
+trivia_es: |
+  - Mein Kampf fue bestseller (1925-45), recargado en Alemania post-1945.
+  - Operación Valkiria (1944): intento de asesinato por oficiales alemanes, fracasó.
+  - Su perro Blondi murió en el bunker minutos antes que él.
+  - Anti-tabaco: prohibió fumar en muchos espacios públicos (paradójicamente progresista).
+
+content_warning: |
+  Este líder modela una de las figuras más estudiadas del fascismo histórico. El juego no
+  permite jugar como Hitler de manera "heroica"; solo aparece como antagonista en escenarios
+  educativos. Los efectos modelados (Holocausto, 2GM) están documentados, no glorificados.

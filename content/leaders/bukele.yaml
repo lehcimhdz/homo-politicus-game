@@ -1,0 +1,90 @@
+id: bukele
+version: 1
+name_es: "Nayib Bukele"
+name_en: "Nayib Bukele"
+country_origin: "El Salvador"
+years_active: "2019-presente"
+
+bio_short_es: |
+  Presidente de El Salvador desde 2019. Aplicó la "guerra contra las maras" más brutal de la
+  historia reciente (76.000 detenciones). Reelecto con 85% en 2024. Adoptó bitcoin como
+  moneda oficial. Caso ambivalente de "autoritarismo eficaz" del siglo XXI.
+
+bio_short_en: |
+  President of El Salvador since 2019. Applied recent history's most brutal "war on gangs"
+  (76,000 detentions). Re-elected with 85% in 2024. Adopted bitcoin as official currency.
+  Ambivalent 21st-century case of "effective authoritarianism".
+
+bio_long_es: |
+  Hijo de empresario palestino, publicista, alcalde de Nuevo Cuscatlán y San Salvador.
+  Expulsado del FMLN, fundó Nuevas Ideas. Ganó presidencia 2019 con 53% (rompió bipartidismo
+  ARENA-FMLN). Joven (38), millennial, dominó redes sociales.
+
+  Hitos polémicos:
+  - Marzo 2022: declaró régimen de excepción tras 87 homicidios en un fin de semana. Suspendió
+    garantías constitucionales (originalmente 30 días, renovado 30+ veces hasta 2026).
+  - 76.000+ detenidos sin juicio, 1% de la población adulta encarcelada.
+  - Construyó CECOT, mega-cárcel para 40.000 reos.
+  - Homicidios cayeron de 51 por 100k (2018) a 2.4 (2024): el más bajo de las Américas.
+  - Septiembre 2021: bitcoin como moneda legal (primer país del mundo).
+  - Forzó reelección via reinterpretación constitucional, ganó con 85% en 2024.
+
+  El "modelo Bukele" se exporta: Honduras, Ecuador y otros líderes intentan copiarlo. Críticas:
+  miles de detenidos inocentes, decenas de muertes en custodia, prensa hostigada, jueces purgados.
+  Defensores: el país que era el más violento del mundo hoy es seguro para los pobres.
+
+personality_traits:
+  - "millennial_authoritarian"
+  - "tiktok_president"
+  - "anti_gang"
+  - "bitcoin_evangelist"
+  - "post_ideological"
+
+starting_modifiers:
+  popularity: +0.30
+  auth_dem_axis: +0.30
+  authoritarianism_prob: +0.30
+  press_freedom: -0.25
+  judicial_independence: -0.30
+  homicide_rate_modifier: -0.85
+  forced_disappearances: +0.20
+  torture_index: +0.15
+  central_bank_autonomy: -0.10
+  regime_legitimacy: +0.20  # Por popularidad inicial
+  congressional_support: +0.50  # Nuevas Ideas supermayoría
+  international_pressure: +0.15  # EEUU/UE critican
+  soft_power_index: +0.10
+
+unique_actions:
+  - id: "regimen_excepcion"
+    name_es: "Régimen de excepción"
+    effect: "homicide_rate *0.1, civil_liberties -0.40, mass_detentions +"
+  - id: "cecot_megaprision"
+    name_es: "Construir mega-prisión CECOT"
+    effect: "homicide_rate *0.9, fiscal_cost +0.5%GDP, international_pressure +0.10"
+  - id: "bitcoin_legal_tender"
+    name_es: "Bitcoin como moneda legal"
+    effect: "central_bank_autonomy -0.20, financial_innovation, gamble"
+  - id: "tiktok_governance"
+    name_es: "Gobernar por redes sociales"
+    effect: "narrative_reach +0.40, polarization +0.10, popularity +0.05"
+  - id: "reeleccion_constitucional"
+    name_es: "Forzar reelección constitucional"
+    effect: "democratic_backsliding +0.20, popularity +0.10 short, regime_legitimacy ambivalent"
+
+nemesis_traits:
+  - description_es: "Tu modelo se quiebra con la primera crisis económica seria"
+    effect: "if recession + commodity_crash, popularity drops 20%+"
+  - description_es: "Bitcoin volatility puede dañar tu narrativa"
+    effect: "btc_crash event triggers credibility hit"
+  - description_es: "Cada año sin reformas estructurales acumula problema"
+    effect: "after turn 16, structural_debt visible"
+
+historical_starting_year: 2019
+
+trivia_es: |
+  - 41 años cuando ganó la presidencia (uno de los más jóvenes).
+  - Su nombre completo: Nayib Armando Bukele Ortez.
+  - Origen palestino: bisabuelo cristiano de Belén.
+  - Twitter es prácticamente su gabinete: cesa ministros por tweet.
+  - Su esposa Gabriela es figura mediática propia.

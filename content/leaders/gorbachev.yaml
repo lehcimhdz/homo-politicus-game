@@ -1,0 +1,85 @@
+id: gorbachev
+version: 1
+name_es: "Mijaíl Gorbachov"
+name_en: "Mikhail Gorbachev"
+country_origin: "USSR"
+years_active: "1985-1991"
+
+bio_short_es: |
+  Último líder de la URSS. Lanzó Glasnost (apertura) y Perestroika (reestructuración). Terminó la
+  Guerra Fría sin guerra. Premio Nobel 1990. La Unión Soviética se desintegró bajo su gestión.
+
+bio_short_en: |
+  Last leader of the USSR. Launched Glasnost (openness) and Perestroika (restructuring). Ended
+  Cold War without war. Nobel Prize 1990. Soviet Union disintegrated under his watch.
+
+bio_long_es: |
+  Hijo de campesinos, abogado, ingeniero agrícola. Carrera meteórica en PCUS, secretario general
+  desde 1985 (más joven del Politburó tras los gerontes). Su diagnóstico inicial: la URSS está
+  estancada económicamente, militarmente sobrextendida en Afganistán, ideológicamente vacía.
+
+  Perestroika: reformas económicas hacia mercado controlado. Glasnost: libertad de prensa,
+  liberación de presos políticos, debate público. Diplomacia: tratados de desarme con Reagan
+  (INF 1987, START), retirada de Afganistán (1989), no intervención en revoluciones de Europa
+  del Este (1989 - caída del Muro de Berlín).
+
+  Pero la apertura aceleró la fragmentación: nacionalismos baltos, ucranianos, caucásicos.
+  Golpe duro de los conservadores en agosto 1991 fracasó (Yeltsin lideró resistencia). En diciembre
+  1991, los presidentes de Rusia, Ucrania y Bielorrusia disolvieron la URSS sin pedirle permiso.
+  Gorbachov renunció el 25/12/1991.
+
+  Post-poder: ONG democrática, candidato presidencial 1996 (0.5%, vergüenza). Murió en 2022,
+  pocos días antes de que Putin invadiera Ucrania, lo que Gorbachov había temido toda su vida.
+
+personality_traits:
+  - "reformer_idealist"
+  - "communicator"
+  - "anti_militarist"
+  - "tragic_hero"
+  - "system_failure"
+
+starting_modifiers:
+  popularity: +0.10
+  regime_legitimacy: -0.15  # Hereda estancamiento
+  press_freedom: +0.30
+  authoritarianism_prob: -0.30
+  economic_ideology: -0.10
+  congressional_support: +0.30  # Politburó al inicio
+  diplomatic_prestige: +0.20
+  soft_power_index: +0.20
+  separatism_prob: +0.10  # Apertura activa nacionalismos
+  us_alignment: +0.10
+
+unique_actions:
+  - id: "perestroika"
+    name_es: "Lanzar Perestroika"
+    effect: "growth_rate -0.03 short, gdp -10% transition, decentralization +"
+  - id: "glasnost"
+    name_es: "Lanzar Glasnost"
+    effect: "press_freedom +0.30, regime_legitimacy +0.15 short, polarization +0.20"
+  - id: "afghan_withdrawal"
+    name_es: "Retirada de Afganistán"
+    effect: "popularity +0.10, military_spending_gdp -0.02, troop_morale -0.05"
+  - id: "inf_treaty"
+    name_es: "Tratado INF con EEUU"
+    effect: "diplomatic_prestige +0.20, nuclear_attack_prob -0.30, us_alignment +0.15"
+  - id: "tolerate_eastern_revolutions"
+    name_es: "No intervenir en Europa del Este"
+    effect: "soft_power +0.25, sphere_of_influence collapse"
+
+nemesis_traits:
+  - description_es: "Tus reformas aceleran fragmentación que no podés controlar"
+    effect: "after turn 12, separatism_prob escalates"
+  - description_es: "Tu propio aparato del partido te traiciona"
+    effect: "coup_d_etat_prob spikes around turn 18-20"
+  - description_es: "El público pasa de apoyarte a odiarte cuando faltan productos básicos"
+    effect: "popularity declines with food_shortage events"
+
+historical_starting_year: 1985
+
+trivia_es: |
+  - Premio Nobel de la Paz 1990.
+  - Marca de pizza: apareció en publicidad Pizza Hut en 1997.
+  - Su nieto vive en Alemania.
+  - En sus memorias culpó a Yeltsin del colapso final.
+  - Vendió como modelo democratizador, criticado en Rusia por "vender" el país.

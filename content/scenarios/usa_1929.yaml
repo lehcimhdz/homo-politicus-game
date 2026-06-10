@@ -1,0 +1,97 @@
+id: usa_1929
+version: 1
+name_es: "EEUU 1929 — Crack de Wall Street"
+name_en: "USA 1929 — Wall Street Crash"
+start_year: 1929
+start_turn: 0
+difficulty: "★★★★☆"
+
+description_es: |
+  Octubre de 1929. Wall Street se desploma. Herbert Hoover, presidente republicano electo hace meses,
+  enfrenta la crisis económica más devastadora del capitalismo. La fe en el mercado libre se hace
+  añicos; en cuatro años el desempleo llegará al 25% si no hacés nada. Tenés tres caminos posibles:
+  ortodoxia liberal, intervencionismo tipo New Deal (todavía no inventado), o gobierno militar.
+
+description_en: |
+  October 1929. Wall Street crashes. Herbert Hoover, Republican president elected months ago, faces
+  capitalism's most devastating economic crisis. Faith in free markets shatters; in four years
+  unemployment will reach 25% if you do nothing. Three possible paths: liberal orthodoxy, New Deal-style
+  interventionism (not yet invented), or military government.
+
+narrative_intro_es: |
+  El crack acaba de suceder. La banca tambalea, miles de empresas quiebran cada semana, las filas
+  para la sopa se multiplican. Vos sos Hoover (o un líder ficticio si querés cambiar la historia).
+  Tenés cuatro años hasta las próximas elecciones. ¿Aplicás la cartilla clásica (recortar gasto,
+  proteger el patrón oro, esperar que el mercado se autoregule), inventás un programa intervencionista
+  estilo Keynes, o vas más allá con un gobierno autoritario tipo el que asoma en Europa?
+
+initial_country:
+  welfare:
+    population: 121800000
+    poverty_rate: 0.20
+    literacy_rate: 0.95
+    primary_enrollment: 0.95
+    secondary_enrollment: 0.50
+    university_enrollment: 0.08
+    health_coverage: 0.20
+    unemployment_rate: 0.03
+    general_strike_prob: 0.20
+    torture_index: 0.02
+    freedom_of_expression: 0.85
+    minority_protection: 0.30
+    un_score: 0.70
+    aging_index: 0.15
+  economy:
+    gdp: 103000000000
+    inflation: 0.0
+    growth_rate: -0.12
+    in_recession: true
+    international_reserves: 4000000000
+    interest_rate: 0.06
+    central_bank_autonomy: 0.40
+    debt_to_gdp_ratio: 0.16
+    credit_rating: 1
+    tax_collection: 4000000000
+  politics:
+    popularity: 0.40
+    auth_dem_axis: 0.20
+    economic_ideology: 0.75
+    social_ideology: 0.60
+    authoritarianism_prob: 0.10
+    coup_d_etat_prob: 0.02
+    civilian_military_control: 0.95
+    administrative_corruption: 0.30
+    polarization_index: 0.55
+    judicial_independence: 0.85
+    press_freedom: 0.90
+    regime_legitimacy: 0.85
+    congressional_support: 0.55
+    opposition_seats: 45
+  security:
+    troop_morale: 0.70
+    military_spending_gdp: 0.011
+    non_state_groups: 0
+    diplomatic_prestige: 0.70
+    us_alignment: 1.0
+    soft_power_index: 0.50
+  infra:
+    pollution_prob: 0.40
+    co2_emissions: 1100000000
+    fossil_fuel_dependency: 0.92
+    state_ai_development: 0.0
+
+objectives:
+  bronce:
+    description_es: "Sobrevive las elecciones de 1932 (turno 12)"
+  plata:
+    description_es: "Desempleo bajo 20% al turno 12"
+  oro:
+    description_es: "Mantén legitimidad >0.7 sin Estado Mayor militarizado"
+  diamante:
+    description_es: "Lográ un New Deal exitoso: desempleo <10% al turno 24"
+
+historical_notes_es: |
+  - Hoover perdió contra FDR en 1932 con 57% en su contra (catástrofe electoral).
+  - El New Deal real (1933-39) recuperó la economía pero con costo político alto.
+  - La Reserva Federal hizo lo opuesto a lo correcto (contracción monetaria).
+  - El Glass-Steagall Act separó banca comercial de inversión (1933-1999).

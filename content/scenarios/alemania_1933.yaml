@@ -1,0 +1,102 @@
+id: alemania_1933
+version: 1
+name_es: "Alemania 1933 — La encrucijada"
+name_en: "Germany 1933 — The Crossroads"
+start_year: 1933
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  Enero de 1933. La República de Weimar agoniza tras 14 años de crisis económica, inflación, deuda
+  de Versalles, calles tomadas por SA y comunistas, y un sistema parlamentario fragmentado en 30+
+  partidos. Hindenburg está por designar canciller. Tu rol: el político moderado que puede frenar el
+  ascenso del nazismo, o el que se rinde a la "solución del hombre fuerte".
+
+description_en: |
+  January 1933. Weimar Republic agonizes after 14 years of economic crisis, inflation, Versailles
+  debt, streets taken by SA and communists, and parliamentary system fragmented into 30+ parties.
+  Hindenburg is about to appoint chancellor. Your role: the moderate politician who can stop the
+  rise of Nazism, or the one who surrenders to the "strongman solution".
+
+narrative_intro_es: |
+  Sos Hindenburg, presidente octogenario. Tenés que designar canciller. Las opciones reales:
+  Hitler (NSDAP, 33% de los votos), Schleicher (militar pragmático), o un gabinete técnico de
+  coalición moderada. Cada decisión cierra puertas. Es uno de los momentos más estudiados de la
+  historia política: el del fallo del centro liberal frente al fascismo.
+
+  Si el centro logra coordinarse, evitás Auschwitz. Si fragmentás, le abrís la puerta.
+
+initial_country:
+  welfare:
+    population: 66000000
+    poverty_rate: 0.40
+    literacy_rate: 0.98
+    primary_enrollment: 0.99
+    secondary_enrollment: 0.50
+    university_enrollment: 0.04
+    health_coverage: 0.65
+    unemployment_rate: 0.30
+    general_strike_prob: 0.40
+    radicalism_prob: 0.55
+    torture_index: 0.05
+    freedom_of_expression: 0.55
+    minority_protection: 0.40
+    un_score: 0.40
+  economy:
+    gdp: 26000000000
+    inflation: 0.0
+    growth_rate: -0.08
+    in_recession: true
+    international_reserves: 500000000
+    interest_rate: 0.07
+    central_bank_autonomy: 0.40
+    debt_to_gdp_ratio: 1.80
+    credit_rating: 7
+    tax_collection: 3000000000
+  politics:
+    popularity: 0.25
+    auth_dem_axis: 0.50
+    economic_ideology: 0.50
+    social_ideology: 0.55
+    authoritarianism_prob: 0.45
+    coup_d_etat_prob: 0.25
+    coup_success_prob: 0.55
+    civilian_military_control: 0.50
+    administrative_corruption: 0.30
+    polarization_index: 0.95
+    revolution_prob: 0.30
+    judicial_independence: 0.65
+    press_freedom: 0.55
+    regime_legitimacy: 0.35
+    congressional_support: 0.30
+    opposition_seats: 70
+    coalition_cohesion: 0.20
+  security:
+    troop_morale: 0.55
+    military_spending_gdp: 0.005
+    military_insubordination_prob: 0.30
+    non_state_groups: 4
+    diplomatic_prestige: 0.30
+    us_alignment: 0.30
+    soft_power_index: 0.30
+  infra:
+    pollution_prob: 0.35
+    co2_emissions: 350000000
+    fossil_fuel_dependency: 0.95
+    state_ai_development: 0.0
+
+objectives:
+  bronce:
+    description_es: "Sobrevive 4 turnos sin coup ni revolución"
+  plata:
+    description_es: "Estabiliza democracia: regime_legitimacy >0.6 al turno 8"
+  oro:
+    description_es: "Detén el nazismo: opposition_seats <40 al turno 12"
+  diamante:
+    description_es: "Lográ recuperación económica democrática: unemployment <10%, popularity >0.55"
+
+historical_notes_es: |
+  - 30 enero 1933: Hindenburg designa a Hitler canciller. Mes y medio después: incendio Reichstag,
+    Ley Habilitante, fin de Weimar.
+  - Lección histórica: el "vamos a contenerlo desde adentro" (estrategia von Papen) falló.
+  - Si querés cambiar la historia, tenés que coordinar centro y centroizquierda antes del turno 4.
