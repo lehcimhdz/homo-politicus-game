@@ -1,0 +1,47 @@
+locale: fr
+version: 1
+
+ui:
+  app_title: "Homo Politicus"
+  welcome: "Bienvenue à Homo Politicus"
+  new_country: "Un nouveau pays a été fondé"
+  game_tick: "Mise à jour du tour"
+  command_prompt: "Commande"
+  game_over_header: "FIN DE PARTIE"
+  turn_prefix: "Tour"
+  pop_short: "Pop:"
+
+end_conditions:
+  NONE: "Pas de condition de fin"
+  COUP_SUCCESS: "Coup d'État militaire réussi"
+  IMPEACHMENT: "Destitution par le congrès"
+  REVOLUTION: "Révolution populaire"
+  LAWFARE_REMOVAL: "Inhabilitation judiciaire (lawfare)"
+  ELECTION_LOSS: "Défaite électorale"
+  EXILE: "Exil sous pression internationale"
+  ASSASSINATION: "Assassinat"
+  NUCLEAR_ANNIHILATION: "Anéantissement nucléaire"
+  TERM_COMPLETED: "Mandat accompli"
+
+commands:
+  next: "Tour suivant"
+  exit: "Quitter"
+  save: "Sauvegarder"
+  load: "Charger"
+  help: "Aide"
+  status_brief: "Résumé bref"
+  decisions: "Lister décisions"
+  skip_decision: "Reporter décision"
+  tax_up: "Augmenter impôts"
+  tax_down: "Baisser impôts"
+  cover_up: "Étouffer scandale"
+  scapegoat: "Bouc émissaire"
+  counter_narrative: "Contre-narration"
+  apologize: "Excuses publiques"
+
+systems:
+  welfare: "Bien-être et Société"
+  economy: "Économie et Finances"
+  politics: "Politique et Institutions"
+  security: "Sécurité et Défense"
+  infra: "Infrastructure et Futur"
