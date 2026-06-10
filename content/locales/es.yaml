@@ -8,6 +8,8 @@ ui:
   game_tick: "Actualización del turno"
   command_prompt: "Comando"
   game_over_header: "FIN DE PARTIDA"
+  turn_prefix: "Turno"
+  pop_short: "Pop:"
 
 end_conditions:
   NONE: "Sin condición de fin"

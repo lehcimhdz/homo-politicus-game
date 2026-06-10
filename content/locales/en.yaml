@@ -8,6 +8,8 @@ ui:
   game_tick: "Game tick update"
   command_prompt: "Command"
   game_over_header: "GAME OVER"
+  turn_prefix: "Turn"
+  pop_short: "Pop:"
 
 end_conditions:
   NONE: "No end condition"
