@@ -1,0 +1,18 @@
+id: lula_2003
+version: 1
+name_es: "Lula da Silva (2003)"
+name_en: "Lula da Silva (2003)"
+country_origin: "Brazil"
+
+bio_short_es: |
+  Asume tras 4 candidaturas. Sindicalista metalúrgico, fundador PT. Combinó mercado y
+  redistribución (Bolsa Família). Salió con 87% aprobación.
+
+personality_traits: [union_leader, populist_moderate, redistributor, latin_diplomacy]
+
+starting_modifiers:
+  popularity: +0.25
+  union_strength: +0.20
+  economic_ideology: -0.10
+  diplomatic_prestige: +0.15
+  poverty_reduction_modifier: +0.30

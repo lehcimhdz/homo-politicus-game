@@ -1,0 +1,20 @@
+id: morales
+version: 1
+name_es: "Evo Morales"
+name_en: "Evo Morales"
+country_origin: "Bolivia"
+years_active: "2006-2019"
+
+bio_short_es: |
+  Primer presidente indígena de Bolivia. Líder cocalero, MAS. Nacionalizó hidrocarburos.
+  Tres reelecciones consecutivas. Renunció 2019 tras crisis electoral.
+
+personality_traits: [indigenous_leader, anti_imperialist, populist, plurinational, exilado_2019]
+
+starting_modifiers:
+  popularity: +0.20
+  economic_ideology: -0.20
+  non_aligned_index: +0.20
+  us_alignment: -0.20
+  minority_protection: +0.25
+  authoritarianism_prob: +0.10

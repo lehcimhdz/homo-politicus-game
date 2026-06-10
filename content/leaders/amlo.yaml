@@ -1,0 +1,20 @@
+id: amlo
+version: 1
+name_es: "Andrés Manuel López Obrador"
+name_en: "Andrés Manuel López Obrador"
+country_origin: "Mexico"
+years_active: "2018-2024"
+
+bio_short_es: |
+  Tres candidaturas, ganó la cuarta con 53%. MORENA. Cuarta Transformación. Estilo
+  directo en conferencias mañaneras. Polémico, polarizador, popular.
+
+personality_traits: [populist, anti_neoliberal, communicator_tv, polarizing, austerity_personal]
+
+starting_modifiers:
+  popularity: +0.25
+  economic_ideology: -0.15
+  polarization_index: +0.25
+  press_freedom: -0.15
+  central_bank_autonomy: -0.10
+  narrative_reach_modifier: +0.30

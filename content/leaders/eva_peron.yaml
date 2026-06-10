@@ -1,0 +1,19 @@
+id: eva_peron
+version: 1
+name_es: "Eva Duarte de Perón"
+name_en: "Eva Perón"
+country_origin: "Argentina"
+years_active: "1946-1952 (vicepresidenta de facto)"
+
+bio_short_es: |
+  Esposa de Perón. Líder simbólica del peronismo, abanderada de los descamisados.
+  Voto femenino (1947), Fundación Eva Perón, ícono mundial. Murió de cáncer a los 33.
+
+personality_traits: [populist, charismatic, working_class_voice, religious_secular_mix, tragic_figure]
+
+starting_modifiers:
+  popularity: +0.30
+  union_strength: +0.20
+  minority_protection: +0.20
+  polarization_index: +0.30
+  press_freedom: -0.10

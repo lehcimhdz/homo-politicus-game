@@ -1,0 +1,20 @@
+id: mujica
+version: 1
+name_es: "Pepe Mujica"
+name_en: "Pepe Mujica"
+country_origin: "Uruguay"
+years_active: "2010-2015"
+
+bio_short_es: |
+  Tupamaro, 14 años en prisión durante dictadura. Frente Amplio. Presidente austero,
+  legalizó marihuana, aborto, matrimonio igualitario. Filosofía simple y humilde.
+
+personality_traits: [philosophical, ascetic, social_progressive, regional_pragmatic, beloved_internationally]
+
+starting_modifiers:
+  popularity: +0.20
+  regime_legitimacy: +0.20
+  soft_power_index: +0.20
+  press_freedom: +0.10
+  social_ideology: -0.20
+  diplomatic_prestige: +0.15
