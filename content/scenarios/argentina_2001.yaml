@@ -1,0 +1,53 @@
+id: argentina_2001
+version: 1
+name_es: "Argentina 2001 — El corralito"
+name_en: "Argentina 2001 — The Bank Freeze"
+start_year: 2001
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  Diciembre de 2001. Argentina al borde del colapso. De la Rúa restringe retiros bancarios
+  (corralito) el 1 de diciembre. Cacerolazos masivos. "Que se vayan todos." El 20 de diciembre
+  De la Rúa renuncia en helicóptero. 5 presidentes en 11 días. Default soberano por $93 mil
+  millones — el mayor de la historia hasta ese momento. Convertibilidad muerta.
+
+initial_country:
+  welfare:
+    population: 36900000
+    poverty_rate: 0.38
+    literacy_rate: 0.97
+    health_coverage: 0.70
+    unemployment_rate: 0.19
+    general_strike_prob: 0.55
+  economy:
+    gdp: 268000000000
+    inflation: 0.011
+    growth_rate: -0.044
+    in_recession: true
+    recession_quarters: 8
+    international_reserves: 14000000000
+    interest_rate: 0.35
+    central_bank_autonomy: 0.30
+    debt_to_gdp_ratio: 0.65
+    credit_rating: 9
+  politics:
+    popularity: 0.10
+    auth_dem_axis: 0.30
+    economic_ideology: 0.55
+    polarization_index: 0.90
+    revolution_prob: 0.35
+    congressional_support: 0.20
+    judicial_independence: 0.45
+    press_freedom: 0.70
+    regime_legitimacy: 0.15
+  security:
+    troop_morale: 0.50
+    diplomatic_prestige: 0.20
+    us_alignment: 0.55
+
+objectives:
+  bronce: { description_es: "Sobrevivir 4 turnos (estabilizar)" }
+  plata:  { description_es: "Salir del default en 12 turnos" }
+  oro:    { description_es: "Reducir pobreza bajo 30% al turno 16" }
+  diamante: { description_es: "Crecimiento sostenido >3% durante 20 turnos" }

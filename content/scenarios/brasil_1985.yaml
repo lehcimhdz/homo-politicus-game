@@ -1,0 +1,50 @@
+id: brasil_1985
+version: 1
+name_es: "Brasil 1985 — Fin de la dictadura"
+name_en: "Brazil 1985 — End of Dictatorship"
+start_year: 1985
+start_turn: 0
+difficulty: "★★★★☆"
+
+description_es: |
+  Marzo de 1985. Tras 21 años de dictadura militar, Tancredo Neves es electo presidente
+  por colegio electoral. Pero muere antes de asumir. José Sarney, vicepresidente, asume.
+  Hiperinflación, deuda externa enorme, demanda democrática contenida.
+
+initial_country:
+  welfare:
+    population: 135000000
+    poverty_rate: 0.42
+    literacy_rate: 0.74
+    health_coverage: 0.35
+    unemployment_rate: 0.052
+    general_strike_prob: 0.30
+    interreligious_tension: 0.05
+  economy:
+    gdp: 222000000000
+    inflation: 2.35
+    growth_rate: 0.078
+    international_reserves: 11000000000
+    interest_rate: 0.30
+    debt_to_gdp_ratio: 0.45
+    credit_rating: 7
+  politics:
+    popularity: 0.55
+    auth_dem_axis: 0.50
+    economic_ideology: 0.50
+    polarization_index: 0.60
+    judicial_independence: 0.40
+    press_freedom: 0.60
+    regime_legitimacy: 0.55
+  security:
+    troop_morale: 0.55
+    diplomatic_prestige: 0.45
+    us_alignment: 0.65
+  infra:
+    pollution_prob: 0.40
+
+objectives:
+  bronce: { description_es: "Sobrevivir transicion 12 turnos sin coup" }
+  plata:  { description_es: "Controlar inflacion bajo 100% al turno 16" }
+  oro:    { description_es: "Aprobar nueva constitucion (1988)" }
+  diamante: { description_es: "Lograr Plan Real exitoso (inflacion bajo 20% al turno 36)" }
