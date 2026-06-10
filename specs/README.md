@@ -12,6 +12,9 @@ This directory holds the detailed implementation specs for Fases 5-12 of the mas
 | 10 | [SPEC_PHASE10_DIPLOMACY.md](SPEC_PHASE10_DIPLOMACY.md) | 30+ countries, blocs, treaties, intl orgs, global crises | Geopolitical depth | Engine extension |
 | 11 | [SPEC_PHASE11_AGENTS.md](SPEC_PHASE11_AGENTS.md) | Named agents: ministers, generals, legislators, judges | CK-style depth | Engine extension |
 | 12 | [SPEC_PHASE12_MODDING.md](SPEC_PHASE12_MODDING.md) | Mod loading, hooks, Steam Workshop | Community extension | After v1.0 |
+| 13 | [SPEC_PHASE13_MULTIPLAYER.md](SPEC_PHASE13_MULTIPLAYER.md) | Hot-seat, PBEM, online sync | 3 multiplayer modes | Post v1.0 |
+| 14 | [SPEC_PHASE14_AI_ADVISOR.md](SPEC_PHASE14_AI_ADVISOR.md) | LLM-powered advisors (Claude/GPT) | 5 advisor personalities + cost model | Differentiator for 2026+ |
+| 15 | [SPEC_PHASE15_STEAM.md](SPEC_PHASE15_STEAM.md) | Steamworks integration, marketing, launch | Asset checklist + timeline | At launch |
 
 ---
 
