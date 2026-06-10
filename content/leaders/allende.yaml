@@ -1,0 +1,75 @@
+id: allende
+version: 1
+name_es: "Salvador Allende"
+name_en: "Salvador Allende"
+country_origin: "Chile"
+years_active: "1970-1973"
+
+bio_short_es: |
+  Médico socialista, presidente de Chile 1970-73, primer marxista elegido democráticamente en el mundo.
+  Murió en La Moneda durante el golpe del 11 de septiembre.
+
+bio_short_en: |
+  Socialist physician, president of Chile 1970-73, first democratically elected Marxist in the world.
+  Died in La Moneda during the September 11 coup.
+
+bio_long_es: |
+  Senador socialista cuatro veces candidato presidencial. Ganó en 1970 por la mínima con 36.6%
+  ante una derecha dividida (Alessandri y Tomic). Confirmado por el Congreso tras negociar el
+  Estatuto de Garantías Democráticas.
+
+  Su programa, la Unidad Popular, propuso la "vía chilena al socialismo": dentro de la legalidad
+  constitucional. Nacionalizó el cobre (con apoyo unánime del Congreso, raro), aceleró reforma
+  agraria, controles de precios, asistencia médica universal.
+
+  Pero la inflación se disparó (sabotaje empresarial + emisión + presión cambiaria), la oposición
+  paralizó el Congreso, EEUU activó programas encubiertos (Track II, ITT), Patria y Libertad atentó,
+  los camioneros pararon. Pinochet, ascendido en agosto 73, lideró el golpe del 11 de septiembre.
+
+  Allende se atrincheró en La Moneda. Su último discurso por Radio Magallanes ("¡Tienen la fuerza,
+  podrán avasallarnos, pero no se detienen los procesos sociales!") quedó como mito.
+
+personality_traits:
+  - "democratic_socialist"
+  - "physician"
+  - "freemason"
+  - "constitutional"
+  - "tragic_figure"
+
+starting_modifiers:
+  popularity: +0.08
+  economic_ideology: -0.30       # Estatista pero democrático
+  social_ideology: -0.15
+  union_strength: +0.20
+  press_freedom: +0.10
+  diplomatic_prestige: +0.10
+  coalition_cohesion: -0.10      # UP era 6 partidos
+  international_pressure: +0.10  # EEUU vendrá por vos
+  coup_d_etat_prob: +0.20
+
+unique_actions:
+  - id: "nacionalizar_cobre"
+    name_es: "Nacionalización del cobre"
+    effect: "state_royalties +25%, US_alignment -0.20, popularity +0.05"
+  - id: "leche_para_ninos"
+    name_es: "Medio litro de leche para cada niño"
+    effect: "popularity +0.07, health +0.05, tax_collection -3%"
+  - id: "cordones_industriales"
+    name_es: "Cordones industriales (poder dual)"
+    effect: "union_strength +0.15, polarization +0.15, military_pressure +0.10"
+
+nemesis_traits:
+  - description_es: "EEUU activamente conspira contra ti"
+    effect: "CIA budget hostile, opposition externally funded"
+  - description_es: "Tu coalición fragmentada se autosabotea"
+    effect: "coalition_cohesion drops every 4 turns"
+  - description_es: "La vía constitucional te impide armarte para la defensa"
+    effect: "cannot arm civilians without breaking your own ethos"
+
+historical_starting_year: 1970
+
+trivia_es: |
+  - Último discurso traducido a decenas de idiomas, mito político mundial.
+  - Su nieto Pablo Sepúlveda es médico antibélico actualmente.
+  - El Proyecto Cybersyn (Stafford Beer) intentó cibernética socialista (1971-73), interrumpido por el golpe.
+  - Su hija Isabel fue candidata presidencial en 2005.

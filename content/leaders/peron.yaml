@@ -1,0 +1,67 @@
+id: peron
+version: 1
+name_es: "Juan Domingo Perón"
+name_en: "Juan Domingo Perón"
+country_origin: "Argentina"
+years_active: "1946-1955, 1973-1974"
+
+bio_short_es: |
+  Militar nacionalista, fundador del peronismo. Construyó el sindicalismo más poderoso de
+  Latinoamérica, otorgó derechos laborales y voto femenino, polarizó al país para siempre.
+
+bio_short_en: |
+  Nationalist military, founder of Peronism. Built Latin America's most powerful trade unionism,
+  granted labor rights and female suffrage, polarized the country forever.
+
+bio_long_es: |
+  Coronel del ejército que llegó al poder en 1946 surfeando el descontento obrero y la crisis
+  política. Su movimiento (justicialismo) fusionó nacionalismo, doctrina social cristiana,
+  fascismo italiano admirado en sus años de agregado militar en Roma, y sindicalismo militante.
+
+  Repartió derechos masivos (vacaciones pagas, aguinaldo, jubilaciones) financiados por las
+  reservas dejadas por la 2GM. Cuando se acabaron, viró hacia el nacionalismo económico y la
+  estatización. Su segunda esposa, Eva Duarte, se volvió ícono mítico tras su muerte en 1952.
+
+  Polarizó al país en términos casi religiosos: peronismo vs antiperonismo. Derrocado en 1955
+  por un golpe cívico-militar, exiliado 18 años. Volvió en 1973 a un país irreconocible y murió
+  un año después dejando a Isabelita y López Rega en el poder, antesala del caos de 1976.
+
+personality_traits:
+  - "charismatic"
+  - "populist"
+  - "nationalist"
+  - "military"
+  - "polarizing"
+
+starting_modifiers:
+  popularity: +0.20
+  polarization_index: +0.25
+  union_strength: +0.30
+  economic_ideology: -0.10
+  social_ideology: -0.05
+  congressional_support: +0.20
+
+unique_actions:
+  - id: "decreto_aguinaldo"
+    name_es: "Decreto 33.302 - Aguinaldo"
+    effect: "minimum_wage +15%, popularity +0.10, tax_collection -5%"
+  - id: "movilizar_cgt"
+    name_es: "Movilización de la CGT"
+    effect: "popular_pressure pro-government +0.30, polarization +0.10"
+  - id: "expropiacion_ferrocarriles"
+    name_es: "Nacionalización de ferrocarriles"
+    effect: "industrial_power +0.20, debt_to_gdp +0.05, infrastructure +0.10"
+
+nemesis_traits:
+  - description_es: "Tu populismo genera oposición igualmente apasionada"
+    effect: "every authoritarian action triggers symmetric mobilization"
+  - description_es: "Los militares te aman u odian sin medias tintas"
+    effect: "military_pressure has higher variance"
+
+historical_starting_year: 1946
+
+trivia_es: |
+  - Tres veces presidente, dos golpes en su contra (1955, no llegó a 1976).
+  - Inspiró a Vargas (Brasil), Velasco Alvarado (Perú) y Chávez (Venezuela).
+  - El "movimiento peronista" gobierna Argentina más años que cualquier otro desde 1945.
+  - Eva Perón rechazó la vicepresidencia en 1951 (Cabildo Abierto del Renunciamiento).

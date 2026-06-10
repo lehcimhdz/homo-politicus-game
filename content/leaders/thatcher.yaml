@@ -1,0 +1,68 @@
+id: thatcher
+version: 1
+name_es: "Margaret Thatcher"
+name_en: "Margaret Thatcher"
+country_origin: "United Kingdom"
+years_active: "1979-1990"
+
+bio_short_es: |
+  Primera ministra británica, líder del neoliberalismo anglosajón. Privatizó industrias estatales,
+  derrotó a los sindicatos del carbón y combatió a la URSS junto a Reagan. Polarizadora extrema.
+
+bio_short_en: |
+  British PM, leader of Anglo neoliberalism. Privatized state industries, defeated coal unions,
+  fought USSR alongside Reagan. Extreme polarizer.
+
+bio_long_es: |
+  Hija de un tendero de Grantham. Química de formación, abogada de carrera, política por convicción.
+  Asumió la jefatura del Partido Conservador en 1975, ganó la elección general de 1979 con un
+  programa explícito de ruptura con el consenso socialdemócrata de posguerra.
+
+  Sus tres ejes: control monetario contra la inflación (Friedman), privatización masiva (British Telecom,
+  British Gas, BR, water boards), y reducción del poder sindical. La huelga minera de 1984-85 (NUM vs
+  Thatcher) fue su Stalingrado. Ganó.
+
+  En política exterior, fue belicista (Guerra de las Malvinas en 1982 le rescató la presidencia),
+  euroescéptica avant la lettre, y partner intelectual de Reagan en la cruzada anticomunista.
+  Cayó por la poll tax (impuesto regresivo) en 1990, derribada por su propio partido.
+
+personality_traits:
+  - "neoliberal"
+  - "anti-union"
+  - "iron_lady"
+  - "monetarist"
+  - "atlanticist"
+
+starting_modifiers:
+  popularity: -0.10              # Baja al inicio, sube con éxito económico
+  economic_ideology: +0.35       # Empuja a la derecha
+  social_ideology: +0.10
+  union_strength: -0.20
+  central_bank_autonomy: +0.15
+  privatization_propensity: +0.50
+  polarization_index: +0.20
+
+unique_actions:
+  - id: "privatizar_estatal"
+    name_es: "Privatización masiva"
+    effect: "tax_collection +20%, popularity -0.05, industrial_power -0.10"
+  - id: "right_to_buy"
+    name_es: "Right to Buy (vivienda)"
+    effect: "popularity +0.15, sovereign_wealth -, mortgage_market +"
+  - id: "miners_strike"
+    name_es: "Romper huelga minera"
+    effect: "union_strength -0.30, polarization +0.20"
+
+nemesis_traits:
+  - description_es: "Tu rigidez ideológica te aliena moderados con el tiempo"
+    effect: "coalition_cohesion declines after 20 turns"
+  - description_es: "Eres odiada por una mitad del país"
+    effect: "if you lose election, opposition takes hardline turn"
+
+historical_starting_year: 1979
+
+trivia_es: |
+  - Sobrevivió al atentado del IRA en Brighton (1984).
+  - Acuñó "There is no alternative" (TINA).
+  - Su hijo Mark fue acusado de mercenarismo en Guinea Ecuatorial.
+  - Murió en 2013; partes del país literalmente celebraron en las calles.

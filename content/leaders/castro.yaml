@@ -1,0 +1,83 @@
+id: castro
+version: 1
+name_es: "Fidel Castro"
+name_en: "Fidel Castro"
+country_origin: "Cuba"
+years_active: "1959-2008"
+
+bio_short_es: |
+  Líder de la Revolución Cubana. Comandante en jefe 49 años. Sobrevivió a 11 presidentes
+  estadounidenses, 638 intentos de asesinato confirmados, y el colapso de la URSS.
+
+bio_short_en: |
+  Leader of the Cuban Revolution. Commander-in-chief for 49 years. Survived 11 US presidents,
+  638 confirmed assassination attempts, and the USSR collapse.
+
+bio_long_es: |
+  Abogado, hijo de hacendado, fundador del Movimiento 26 de Julio. Asaltó el cuartel Moncada
+  en 1953 (fracaso), juzgado, condenado, amnistiado, exiliado. Volvió en 1956 con el Granma
+  desde México. Guerrilla en la Sierra Maestra hasta 1959.
+
+  El 1/1/1959 Batista huyó. Castro entró triunfal a La Habana el 8. Inicialmente nacionalista
+  moderado, viró al socialismo declarado en 1961 tras Bahía de Cochinos. Alianza con URSS,
+  crisis de los misiles 1962 (casi WWIII), nacionalización total, embargo EEUU desde 1962
+  todavía vigente en 2026.
+
+  Logros: alfabetización completa (1961), sistema de salud reconocido por la OMS, internacionalismo
+  (Angola, Etiopía, médicos por todo el sur global), longevidad como líder. Sombras: falta de
+  libertades civiles, éxodo masivo (Mariel 1980, balseros 1994), economía colapsada por embargo
+  + monocultivo + dirigismo, Período Especial post-1991 con hambre real.
+
+  Cedió poder a su hermano Raúl en 2006 por enfermedad. Murió en 2016.
+
+personality_traits:
+  - "revolutionary"
+  - "ideologue"
+  - "internationalist"
+  - "anti_imperialist"
+  - "long_speaker"
+
+starting_modifiers:
+  popularity: +0.30              # Euforia revolucionaria inicial
+  regime_legitimacy: +0.20
+  economic_ideology: -0.40       # Socialista
+  social_ideology: -0.20
+  authoritarianism_prob: +0.30
+  press_freedom: -0.30
+  international_pressure: +0.30  # EEUU vendrá
+  us_alignment: -0.50
+  china_alignment: +0.10
+  soft_power_index: +0.20        # Internacionalismo
+  diplomatic_prestige: +0.10
+  invasion_prob: +0.20
+
+unique_actions:
+  - id: "campana_alfabetizacion"
+    name_es: "Campaña de alfabetización"
+    effect: "literacy_rate +0.30 in 1 turn, popularity +0.15, soft_power +0.10"
+  - id: "internacionalismo_medico"
+    name_es: "Médicos cubanos al exterior"
+    effect: "soft_power +0.15, tax_collection +5%, brain_drain +0.05"
+  - id: "nacionalizacion_total"
+    name_es: "Nacionalización total"
+    effect: "us_alignment -0.30, gdp short shock, equality +"
+  - id: "discurso_8_horas"
+    name_es: "Discurso de 8 horas (récord)"
+    effect: "popularity +0.05, but next turn no other action"
+
+nemesis_traits:
+  - description_es: "El embargo te aísla económicamente para siempre"
+    effect: "trade restricted, technology lag accumulates"
+  - description_es: "Tu dependencia de URSS te hace vulnerable a su colapso"
+    effect: "if USSR falls, your economy enters Special Period"
+  - description_es: "Tu carisma no se transfiere a tu sucesor"
+    effect: "after you, popularity baseline drops 20%"
+
+historical_starting_year: 1959
+
+trivia_es: |
+  - Récord Guinness: discurso de 7h10' en la ONU (1960).
+  - Hijo: Fidel Castro Díaz-Balart, físico nuclear, suicidio 2018.
+  - Hermano de Raúl, sucesor.
+  - Su biblioteca personal: 7000+ libros.
+  - Estimación CIA: 638 intentos de asesinato (cigarros, conchas marinas explosivas, etc.).

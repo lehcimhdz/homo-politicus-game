@@ -1,0 +1,84 @@
+id: chavez
+version: 1
+name_es: "Hugo Chávez"
+name_en: "Hugo Chávez"
+country_origin: "Venezuela"
+years_active: "1999-2013"
+
+bio_short_es: |
+  Coronel paracaidista, intentó golpe en 1992, fue encarcelado, indultado, y ganó las elecciones
+  en 1998. Lideró el "socialismo del siglo XXI" en Venezuela apoyado en el petróleo a $100+.
+
+bio_short_en: |
+  Paratrooper colonel, attempted coup in 1992, imprisoned, pardoned, won elections in 1998.
+  Led "21st century socialism" in Venezuela backed by oil at $100+.
+
+bio_long_es: |
+  Hijo de maestros rurales en Sabaneta. Carrera militar, fundó MBR-200 (Movimiento Bolivariano
+  Revolucionario). Lideró el intento de golpe del 4F/1992 contra Carlos Andrés Pérez. Capturado,
+  pidió "rendirse por ahora" ("por ahora" volvería como meme).
+
+  Liberado 1994, fundó MVR (Movimiento Quinta República). Ganó elecciones 1998 con 56%.
+  Convocó constituyente, nueva constitución 1999, refundación bolivariana del estado.
+
+  Sobrevivió golpe de 2002 (48h fuera del poder, retornado por masas + sectores militares),
+  paro petrolero (2002-03), referéndum revocatorio (2004, ganó). Reelecto 2006 con 63%, 2012
+  con 55%. Diagnosticado con cáncer en 2011, murió en marzo de 2013 designando a Maduro.
+
+  Su modelo: misiones sociales (Barrio Adentro, Robinson, Mercal), nacionalizaciones, controles
+  cambiarios, alianza con Cuba (médicos por petróleo), ALBA, Petrocaribe, choque con EEUU.
+  Polarización extrema, economía dependiente del crudo, instituciones erosionadas.
+
+personality_traits:
+  - "populist"
+  - "military_civilian"
+  - "anti_imperialist"
+  - "tv_charismatic"
+  - "petro_state_leader"
+
+starting_modifiers:
+  popularity: +0.20
+  regime_legitimacy: +0.10
+  economic_ideology: -0.30
+  social_ideology: -0.10
+  authoritarianism_prob: +0.15
+  polarization_index: +0.30
+  press_freedom: -0.20
+  judicial_independence: -0.15
+  congressional_support: +0.30
+  oil_dependency_modifier: +0.40
+  international_pressure: +0.15
+  us_alignment: -0.40
+  china_alignment: +0.20
+  soft_power_index: +0.10
+
+unique_actions:
+  - id: "alo_presidente"
+    name_es: "Programa Aló Presidente (TV)"
+    effect: "narrative_reach +0.30, polarization +0.10, popularity +0.05"
+  - id: "expropriar_industria"
+    name_es: "¡Exprópiese!"
+    effect: "industrial_power -0.15, foreign_investment -0.20, popularity +0.05"
+  - id: "mision_barrio_adentro"
+    name_es: "Misión Barrio Adentro (médicos cubanos)"
+    effect: "health_coverage +0.20, popularity +0.10, fiscal cost"
+  - id: "petro_diplomacy"
+    name_es: "Diplomacia petrolera (Petrocaribe)"
+    effect: "soft_power +0.15, diplomatic_prestige +0.10, fiscal cost"
+
+nemesis_traits:
+  - description_es: "Tu modelo depende absolutamente del precio del petróleo"
+    effect: "if oil_price <60, fiscal crisis cascading"
+  - description_es: "Tu polarización dificulta sucesión post-mortem"
+    effect: "successor inherits polarized country, harder to rule"
+  - description_es: "Tu modelo erosiona instituciones que después necesitarás"
+    effect: "judicial/legislative captured, hard to roll back"
+
+historical_starting_year: 1999
+
+trivia_es: |
+  - Murió de cáncer relativamente joven (58 años).
+  - En 4F/1992 dijo "por ahora" que se volvió leyenda.
+  - Pedro Carmona, presidente golpista 2002, duró 48 horas.
+  - Cantó por TV temas vallenatos.
+  - Su sucesor designado fue Nicolás Maduro (su ex chofer y luego canciller).

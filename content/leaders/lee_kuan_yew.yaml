@@ -1,0 +1,77 @@
+id: lee_kuan_yew
+version: 1
+name_es: "Lee Kuan Yew"
+name_en: "Lee Kuan Yew"
+country_origin: "Singapore"
+years_active: "1959-1990 (PM), 1990-2015 (Senior Minister/Mentor)"
+
+bio_short_es: |
+  Padre fundador de Singapur. Llevó al país de tercer mundo a primer mundo en una generación.
+  Autoritarismo benévolo, anti-corrupción brutal, meritocracia étnica, planificación tecnocrática.
+
+bio_short_en: |
+  Founding father of Singapore. Took the country from third to first world in one generation.
+  Benevolent authoritarianism, brutal anti-corruption, ethnic meritocracy, technocratic planning.
+
+bio_long_es: |
+  Abogado formado en Cambridge, líder del People's Action Party (PAP). PM desde 1959 (entonces
+  Singapur era estado de Malasia). Tras la expulsión de la federación en 1965, lideró la
+  construcción del estado-nación moderno.
+
+  Su modelo: estado fuerte con un solo partido dominante (PAP), tecnócratas en gabinete con
+  salarios privados (Singapur paga a sus ministros ~$2M anuales para evitar corrupción), aparato
+  legal severo (azotes, pena de muerte por drogas), pero infraestructura, vivienda pública (HDB),
+  educación y salud world-class. Cero ideología económica fija: tomó lo que funcionó.
+
+  Política étnica: cuotas en HDB para evitar guetos raciales, bilingüismo obligatorio (inglés +
+  lengua materna), libros religiosos estrictamente regulados para prevenir conflicto.
+
+  Crítica: democracia formal pero competitiva real limitada, prensa autocensurada, oposición
+  perseguida por libelo (caso JB Jeyaretnam). Heredó el poder a su hijo Lee Hsien Loong.
+
+personality_traits:
+  - "technocratic"
+  - "benevolent_authoritarian"
+  - "anti_corruption"
+  - "meritocratic"
+  - "pragmatic"
+
+starting_modifiers:
+  popularity: +0.15
+  auth_dem_axis: +0.30
+  administrative_corruption: -0.30
+  anticorruption_enforcement: +0.40
+  judicial_independence: +0.10   # Common law respect
+  economic_ideology: +0.20       # Pro-market pragmatic
+  press_freedom: -0.20
+  research_spending_gdp: +0.02
+  trade_openness: +0.40
+  investment_climate_index: +0.20
+
+unique_actions:
+  - id: "salario_ministros_market"
+    name_es: "Salarios ministeriales atados al mercado"
+    effect: "administrative_corruption -0.15, talent +0.20, fiscal_cost +0.5%GDP"
+  - id: "hdb_housing_program"
+    name_es: "Programa HDB de vivienda pública"
+    effect: "popularity +0.15, urban_quality +0.30, polarization -0.10 (ethnic)"
+  - id: "english_education_mandate"
+    name_es: "Inglés como lengua administrativa"
+    effect: "fdi +30%, brain_drain -0.10, cultural_friction +0.05"
+  - id: "cpib_arrest_no_warrant"
+    name_es: "Poder CPIB sin orden judicial"
+    effect: "corruption -0.20, civil_liberties -0.10"
+
+nemesis_traits:
+  - description_es: "Tu modelo no se replica si no podés controlar 600km² urbanos"
+    effect: "harder to scale if country is >5M people or rural"
+  - description_es: "Tu sucesión depende de mantener el mismo nivel de competencia"
+    effect: "if successor competence <0.7, model degrades"
+
+historical_starting_year: 1965
+
+trivia_es: |
+  - Acuñó "Asian values" debate en los 90.
+  - Singapur 1965: $516 per cápita. 2015: $55.000 (su muerte).
+  - Forbes lo llamó "father of modern Singapore".
+  - Su escritura "From Third World to First" es bestseller global.

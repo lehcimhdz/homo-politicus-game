@@ -1,0 +1,76 @@
+id: lula
+version: 1
+name_es: "Luiz Inácio Lula da Silva"
+name_en: "Luiz Inácio Lula da Silva"
+country_origin: "Brazil"
+years_active: "2003-2010, 2023-presente"
+
+bio_short_es: |
+  Sindicalista metalúrgico, fundador del PT. Tres presidencias (2003-2006, 2007-2010, 2023-).
+  Sacó 30 millones de la pobreza con Bolsa Família, encarcelado 580 días, regresó al poder.
+
+bio_short_en: |
+  Metalworker union leader, founder of PT. Three presidencies (2003-2006, 2007-2010, 2023-).
+  Lifted 30 million out of poverty with Bolsa Família, jailed 580 days, returned to power.
+
+bio_long_es: |
+  Nordestino migrante a São Paulo. Obrero metalúrgico de Volkswagen, perdió un dedo en accidente
+  laboral. Lideró las huelgas del ABC paulista en 1979-80, contra la dictadura militar. Cofundó
+  el PT (Partido dos Trabalhadores) en 1980 y la CUT (sindical) en 1983.
+
+  Cuatro candidaturas presidenciales (1989, 1994, 1998, 2002): perdió tres, ganó la cuarta.
+  Su gestión 2003-10: estabilidad macro heredada de FHC + masiva redistribución (Bolsa Família
+  llegó a 50M de personas), salario mínimo +75% real, programa de inclusión universitaria,
+  boom de commodities = milagro brasileño. Salió con 87% aprobación.
+
+  Dilma sucesora, Lava Jato, encarcelamiento de Lula en 2018 (Sergio Moro como juez), elección
+  de Bolsonaro. Lula salió en libertad por anulación de proceso (2021), regresó al poder en 2023
+  derrotando a Bolsonaro.
+
+personality_traits:
+  - "union_leader"
+  - "populist_moderate"
+  - "comeback_kid"
+  - "south_global_diplomat"
+  - "social_redistribution"
+
+starting_modifiers:
+  popularity: +0.20
+  regime_legitimacy: +0.15
+  polarization_index: +0.15      # Brasil polarizado
+  economic_ideology: -0.10       # Center-left moderate
+  social_ideology: -0.10
+  coalition_cohesion: -0.05      # Brasil multipartidario
+  union_strength: +0.15
+  diplomatic_prestige: +0.15
+  soft_power_index: +0.15
+  non_aligned_index: +0.10
+
+unique_actions:
+  - id: "bolsa_familia"
+    name_es: "Bolsa Família (transferencia condicionada)"
+    effect: "poverty_rate -0.15, popularity +0.20, fiscal cost +1.5%GDP"
+  - id: "diplomacia_sur_sur"
+    name_es: "Diplomacia sur-sur"
+    effect: "soft_power +0.20, non_aligned +0.10, China relations +"
+  - id: "pre_sal"
+    name_es: "Política Pré-Sal (petróleo)"
+    effect: "state_royalties +20%, foreign_investment ambivalent"
+  - id: "fome_zero"
+    name_es: "Programa Fome Zero"
+    effect: "poverty_rate -0.10, popularity +0.10"
+
+nemesis_traits:
+  - description_es: "Tu coalición forzada genera escándalos de corrupción"
+    effect: "after 20 turns, lobby_corruption events +20%"
+  - description_es: "Tus enemigos te perseguirán judicialmente"
+    effect: "judicial_pressure +0.10 chronic when opposition strong"
+
+historical_starting_year: 2003
+
+trivia_es: |
+  - "Nunca antes nesse país" (frase fetiche).
+  - Su Lula 2003 ganó con 61% en segunda vuelta.
+  - Lula 2023 ganó con 50.9% (más apretada de la historia brasileña).
+  - Su esposa Marisa Letícia murió en 2017.
+  - Encarcelado en Curitiba, no podía ver fútbol del Corinthians (su pasión).

@@ -1,0 +1,68 @@
+id: mandela
+version: 1
+name_es: "Nelson Mandela"
+name_en: "Nelson Mandela"
+country_origin: "South Africa"
+years_active: "1994-1999"
+
+bio_short_es: |
+  Líder anti-apartheid encarcelado 27 años, primer presidente negro de Sudáfrica electo
+  democráticamente. Símbolo mundial de reconciliación. Heredó un país al borde de la guerra civil racial.
+
+bio_short_en: |
+  Anti-apartheid leader imprisoned 27 years, first democratically elected black President of South Africa.
+  Global symbol of reconciliation. Inherited a country on the brink of racial civil war.
+
+bio_long_es: |
+  Abogado xhosa de la familia real Thembu. Fundador del ala militar (uMkhonto we Sizwe) del ANC.
+  Condenado a cadena perpetua en 1964 en el juicio de Rivonia; pasó 27 años en Robben Island y
+  otras prisiones. Liberado en 1990 por F.W. de Klerk en un proceso negociado.
+
+  Asumió la presidencia en 1994 tras las primeras elecciones multirraciales. Su principal logro
+  fue evitar la guerra civil: priorizó reconciliación sobre venganza (Comisión de la Verdad y la
+  Reconciliación, dirigida por Desmond Tutu). La copa Rugby 1995 (Sudáfrica campeón con Mandela
+  vistiendo la camiseta Springbok) se volvió ícono.
+
+  Limitaciones: pobreza estructural y desigualdad racial no fueron desmanteladas (la economía
+  siguió en manos blancas), HIV/AIDS gestionada deficientemente, criminalidad alta. Pero la
+  transición pacífica fue un milagro político.
+
+personality_traits:
+  - "moral_authority"
+  - "reconciler"
+  - "anti_authoritarian"
+  - "veteran_prisoner"
+  - "global_icon"
+
+starting_modifiers:
+  popularity: +0.30              # Alta inicial mundial
+  regime_legitimacy: +0.30
+  soft_power_index: +0.40
+  diplomatic_prestige: +0.35
+  polarization_index: -0.15      # Reducís polarización
+  human_rights_index: +0.20      # Mejora estructural
+
+unique_actions:
+  - id: "truth_reconciliation"
+    name_es: "Comisión de la Verdad y la Reconciliación"
+    effect: "polarization -0.20, regime_legitimacy +0.15, no jail for past crimes"
+  - id: "rugby_diplomacy"
+    name_es: "Diplomacia del rugby"
+    effect: "popularity +0.05, soft_power +0.10 (once)"
+  - id: "constitution_1996"
+    name_es: "Constitución progresista"
+    effect: "judicial_independence +0.20, minority_protection +0.15"
+
+nemesis_traits:
+  - description_es: "Tu autoridad moral no resuelve desigualdad estructural"
+    effect: "economic inequality persists, future unrest possible"
+  - description_es: "Tu sucesor heredará un país aún polarizado"
+    effect: "polarization rebounds after you leave"
+
+historical_starting_year: 1994
+
+trivia_es: |
+  - Premio Nobel de la Paz 1993 (compartido con de Klerk).
+  - Rechazó segundo mandato (raro en África entonces).
+  - Su autobiografía "Long Walk to Freedom" (1994) es de las más vendidas.
+  - Murió en 2013, luto mundial.

@@ -1,0 +1,75 @@
+id: merkel
+version: 1
+name_es: "Angela Merkel"
+name_en: "Angela Merkel"
+country_origin: "Germany"
+years_active: "2005-2021"
+
+bio_short_es: |
+  Física, criada en la RDA. Primera mujer canciller de Alemania, 16 años en el poder.
+  Pragmática centro-derecha, manejó la crisis del euro, refugiados (2015), Covid.
+
+bio_short_en: |
+  Physicist, raised in East Germany. Germany's first female chancellor, 16 years in power.
+  Centrist-right pragmatist, managed the euro crisis, refugees (2015), Covid.
+
+bio_long_es: |
+  Doctora en química cuántica, hija de pastor luterano. Creció en la RDA, joven militante de
+  la FDJ comunista (sin convicción visible). Tras la caída del Muro, entró en la nueva CDU del
+  Este, fue mentoreada por Helmut Kohl.
+
+  Ministra de Mujer (1991), ministra de Medio Ambiente (1994), líder de CDU desde 2000.
+  Canciller desde 2005, ganó 4 elecciones consecutivas. Característica: anti-dramatismo,
+  decisiones lentas y técnicas, capacidad de absorber crisis sin perder estabilidad.
+
+  Hitos: crisis del euro 2010-12 (austeridad para Grecia, ahorrar el euro), Fukushima
+  2011 (cierre nuclear acelerado), crisis migratoria 2015 ("Wir schaffen das"), Brexit 2016,
+  pandemia 2020. Mantuvo siempre ~60% aprobación, raro en política europea.
+
+  Críticas: dependencia energética rusa (Nord Stream), austeridad excesiva con Grecia,
+  digitalización lenta, conformismo. Se retiró voluntariamente en 2021.
+
+personality_traits:
+  - "pragmatist"
+  - "technocrat"
+  - "consensus_builder"
+  - "low_drama"
+  - "german_efficient"
+
+starting_modifiers:
+  popularity: +0.20
+  regime_legitimacy: +0.20
+  polarization_index: -0.15
+  coalition_cohesion: +0.20
+  administrative_corruption: -0.10
+  central_bank_autonomy: +0.10
+  diplomatic_prestige: +0.20
+  soft_power_index: +0.15
+  fiscal_discipline_modifier: +0.20
+  press_freedom: +0.05
+
+unique_actions:
+  - id: "grand_coalition"
+    name_es: "Gran coalición"
+    effect: "coalition_cohesion +0.20, opposition_seats -0.10, ideological dilution"
+  - id: "fiskalpakt"
+    name_es: "Pacto fiscal europeo"
+    effect: "credit_rating +1, popularity in EU partners -0.05, austerity image"
+  - id: "wir_schaffen_das"
+    name_es: "Acoger refugiados (Wir schaffen das)"
+    effect: "soft_power +0.10, internal polarization +0.15, immigration +"
+
+nemesis_traits:
+  - description_es: "Tu pragmatismo te impide visión transformadora"
+    effect: "structural changes deferred, accumulate over time"
+  - description_es: "Dependencia energética rusa estalla con conflicto"
+    effect: "if Russia conflict triggers, energy crisis cascading"
+
+historical_starting_year: 2005
+
+trivia_es: |
+  - Política nuclear: cerró todas las centrales tras Fukushima.
+  - Fue traída a la política por Helmut Kohl en 1991.
+  - Habla ruso fluido (residencia académica en Moscú).
+  - Su esposo Joachim Sauer es químico cuántico, casi nunca aparece en público.
+  - Récord de aprobación post-jubilación: ~70%.

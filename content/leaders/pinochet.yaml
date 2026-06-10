@@ -1,0 +1,75 @@
+id: pinochet
+version: 1
+name_es: "Augusto Pinochet"
+name_en: "Augusto Pinochet"
+country_origin: "Chile"
+years_active: "1973-1990"
+
+bio_short_es: |
+  General que lideró el golpe contra Allende. Dictador 17 años. Aplicó shock económico neoliberal
+  (Chicago Boys) con represión brutal: 3.197 desaparecidos confirmados, 40.000 torturados.
+
+bio_short_en: |
+  General who led the coup against Allende. Dictator for 17 years. Applied neoliberal shock therapy
+  (Chicago Boys) with brutal repression: 3,197 confirmed disappeared, 40,000 tortured.
+
+bio_long_es: |
+  Oficial nacido en Valparaíso, hijo de aduanero. Ascendió a Comandante en Jefe en agosto de 1973
+  con el voto de Allende, que confiaba en su lealtad constitucional. Lideró el golpe del 11/9.
+
+  Se autoproclamó Jefe del Estado, disolvió Congreso, prohibió partidos, instauró toque de queda
+  por años. La DINA (luego CNI) ejecutó la represión sistemática (caravanas de la muerte, Operación
+  Cóndor). Plan económico: privatizaciones masivas, apertura comercial total, reformas tributarias
+  pro-capital, sistema de AFP (jubilaciones privadas), Constitución 1980 hecha a su medida.
+
+  Resultado económico: "milagro" macro con desigualdad histórica. Plebiscito 1988 (NO ganó),
+  transición 1990. Mantuvo comandancia del ejército hasta 1998. Detenido en Londres 1998 por
+  el juez Garzón (caso de jurisdicción universal). Murió en 2006 sin condena por DD.HH., con
+  causas pendientes por enriquecimiento ilícito (cuentas en Riggs Bank).
+
+personality_traits:
+  - "military_dictator"
+  - "neoliberal_authoritarian"
+  - "anti_communist"
+  - "ruthless"
+  - "chicago_boys_patron"
+
+starting_modifiers:
+  popularity: -0.20              # Tomó por golpe
+  auth_dem_axis: +0.40
+  authoritarianism_prob: +0.40
+  civilian_military_control: -0.30
+  press_freedom: -0.40
+  torture_index: +0.30
+  forced_disappearances: +0.20
+  judicial_independence: -0.20
+  international_pressure: +0.20
+  economic_ideology: +0.30       # Neoliberal
+  congressional_support: 0       # Disuelto
+  congressional_pressure: 0      # Sin congreso
+  diplomatic_prestige: -0.20
+
+unique_actions:
+  - id: "decreto_2191"
+    name_es: "Decreto Ley de Amnistía (1978)"
+    effect: "judicial_pressure -0.20, international_pressure +0.15, impunity +0.20"
+  - id: "constitucion_1980"
+    name_es: "Constitución 1980"
+    effect: "regime_legitimacy +0.10 (controlled), democratic_backsliding +0.30"
+  - id: "chicago_boys_shock"
+    name_es: "Shock económico Chicago Boys"
+    effect: "inflation -50%, unemployment +0.10, gdp short-term shock, inequality +"
+
+nemesis_traits:
+  - description_es: "Tu pasado te persigue cualquier transición democrática"
+    effect: "if you allow democracy, lawsuits inevitable"
+  - description_es: "Tu desigualdad genera explosiones sociales futuras"
+    effect: "polarization rebounds, social explosion in 30-40 turns"
+
+historical_starting_year: 1973
+
+trivia_es: |
+  - Sobrevivió atentado del FPMR en 1986 (Operación Siglo XX).
+  - Su esposa Lucía Hiriart tenía cuenta en Riggs Bank con $15M no declarados.
+  - Detenido en clínica de Londres en 1998 mientras se operaba la columna.
+  - El "estallido social" chileno de octubre 2019 atribuido a deuda histórica con su modelo.
