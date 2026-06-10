@@ -1,0 +1,39 @@
+locale: it
+version: 1
+
+ui:
+  app_title: "Homo Politicus"
+  welcome: "Benvenuto in Homo Politicus"
+  new_country: "Un nuovo paese è stato fondato"
+  game_tick: "Aggiornamento del turno"
+  command_prompt: "Comando"
+  game_over_header: "FINE PARTITA"
+  turn_prefix: "Turno"
+  pop_short: "Pop:"
+
+end_conditions:
+  NONE: "Nessuna condizione di fine"
+  COUP_SUCCESS: "Colpo di Stato militare riuscito"
+  IMPEACHMENT: "Destituzione dal congresso"
+  REVOLUTION: "Rivoluzione popolare"
+  LAWFARE_REMOVAL: "Inabilitazione giudiziaria"
+  ELECTION_LOSS: "Sconfitta elettorale"
+  EXILE: "Esilio sotto pressione internazionale"
+  ASSASSINATION: "Assassinio"
+  NUCLEAR_ANNIHILATION: "Annichilimento nucleare"
+  TERM_COMPLETED: "Mandato completato"
+
+commands:
+  next: "Prossimo turno"
+  exit: "Esci"
+  save: "Salva partita"
+  load: "Carica partita"
+  help: "Aiuto"
+  status_brief: "Riassunto breve"
+
+systems:
+  welfare: "Benessere e Società"
+  economy: "Economia e Finanze"
+  politics: "Politica e Istituzioni"
+  security: "Sicurezza e Difesa"
+  infra: "Infrastruttura e Futuro"
