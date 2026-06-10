@@ -1,0 +1,8 @@
+id: grecia_2015
+name: "Grecia 2015 — Tsipras y la troika"
+author: "Homo Politicus Team"
+version: "1.0"
+description: |
+  Escenario fan-mod: Syriza gana en Grecia, choque con la troika UE-FMI-BCE.
+  Referéndum del NO, capitulación a las condiciones impuestas.
+dependencies: core

@@ -1,0 +1,8 @@
+id: usa_2017_trump
+name: "USA 2017 — Trump asume"
+author: "Homo Politicus Team"
+version: "1.0"
+description: |
+  Escenario fan-mod: Donald Trump asume tras derrotar a Hillary Clinton. Polarización
+  extrema, muro fronterizo, Twitter como herramienta política, impeachment, COVID-19.
+dependencies: core

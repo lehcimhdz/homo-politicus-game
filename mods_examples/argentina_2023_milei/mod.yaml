@@ -1,0 +1,9 @@
+id: argentina_2023_milei
+name: "Argentina 2023 — Milei"
+author: "Homo Politicus Team"
+version: "1.0"
+description: |
+  Escenario fan-mod: Javier Milei asume tras ganar balotaje 2023. Dolarización propuesta,
+  motosierra al estado, shock terapéutico, choque cultural.
+dependencies: core
+created: 2026-06-15

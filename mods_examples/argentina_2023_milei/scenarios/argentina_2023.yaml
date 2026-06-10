@@ -1,0 +1,46 @@
+id: argentina_2023
+version: 1
+name_es: "Argentina 2023 — Milei asume"
+start_year: 2023
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  10 de diciembre 2023. Javier Milei jura como presidente. Anarcocapitalista, libertario,
+  economista. Promete motosierra al estado, dolarización, fin del cepo. Sin mayoría
+  legislativa. Inflación 211% anual. Pobreza 50%.
+
+initial_country:
+  welfare:
+    population: 46000000
+    poverty_rate: 0.50
+    literacy_rate: 0.99
+    unemployment_rate: 0.07
+    general_strike_prob: 0.50
+  economy:
+    gdp: 640000000000
+    inflation: 2.11
+    growth_rate: -0.025
+    in_recession: true
+    international_reserves: 25000000000
+    interest_rate: 1.20
+    debt_to_gdp_ratio: 0.85
+    credit_rating: 9
+  politics:
+    popularity: 0.55
+    auth_dem_axis: 0.35
+    economic_ideology: 0.95
+    polarization_index: 0.95
+    judicial_independence: 0.55
+    press_freedom: 0.65
+    regime_legitimacy: 0.50
+    congressional_support: 0.18
+  security:
+    diplomatic_prestige: 0.40
+    us_alignment: 0.75
+
+objectives:
+  bronce: { description_es: "Sobrevive 12 turnos sin renuncia" }
+  plata:  { description_es: "Reducir inflacion bajo 100% al turno 16" }
+  oro:    { description_es: "Dolarizacion exitosa sin default" }
+  diamante: { description_es: "Pobreza bajo 30% al turno 24" }
