@@ -1,0 +1,159 @@
+id: chile_1973
+version: 1
+name_es: "Chile 1973 — El último año de Allende"
+name_en: "Chile 1973 — Allende's Last Year"
+start_year: 1973
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  Enero de 1973. Salvador Allende lleva dos años en La Moneda con la Unidad Popular.
+  Nacionalización del cobre exitosa, reforma agraria avanzada, pero inflación de 600% anual,
+  desabastecimiento por sabotaje empresarial (Patria y Libertad, paro camionero), CIA financiando
+  oposición, ITT conspirando, y un Pinochet recién ascendido. El Congreso opositor lo bloquea todo.
+
+description_en: |
+  January 1973. Salvador Allende has been in La Moneda for two years with the Popular Unity.
+  Successful copper nationalization, advanced land reform, but 600% annual inflation,
+  shortages from business sabotage (Patria y Libertad, truck strike), CIA-funded opposition,
+  ITT conspiring, and a newly promoted Pinochet. Opposition Congress blocks everything.
+
+narrative_intro_es: |
+  Sos Allende. Tenés un programa revolucionario por vía pacífica, pero el cerco se cierra.
+  Las clases medias odian la inflación y las colas. El ejército está infiltrado. El Congreso
+  bloquea cada ley. Nixon y Kissinger juraron "hacer chillar la economía".
+
+  Tres caminos:
+  - Profundizar la revolución, armar al pueblo, romper con la legalidad burguesa.
+  - Negociar con la DC y moderar el programa para sobrevivir.
+  - Llamar a plebiscito antes de que sea tarde.
+
+  En la historia real elegiste el tercer camino pero no llegaste a anunciarlo.
+
+narrative_intro_en: |
+  You are Allende. You have a peaceful-path revolutionary program, but the noose tightens.
+  The middle classes hate inflation and shortages. The army is infiltrated. Congress blocks
+  every law. Nixon and Kissinger swore to "make the economy scream".
+
+  Three paths:
+  - Deepen the revolution, arm the people, break with bourgeois legality.
+  - Negotiate with Christian Democracy and moderate the program to survive.
+  - Call for plebiscite before it's too late.
+
+  In real history you chose the third but didn't make it to announce it.
+
+initial_country:
+  welfare:
+    population: 10100000
+    poverty_rate: 0.25
+    literacy_rate: 0.91
+    primary_enrollment: 0.95
+    secondary_enrollment: 0.45
+    university_enrollment: 0.13
+    health_coverage: 0.75          # SNS chileno
+    unemployment_rate: 0.04
+    general_strike_prob: 0.65      # Paro camionero activo
+    torture_index: 0.02
+    freedom_of_expression: 0.75
+    minority_protection: 0.55
+    un_score: 0.65
+    aging_index: 0.20
+  economy:
+    gdp: 18000000000
+    inflation: 6.06                # 606% anual
+    growth_rate: -0.005
+    in_recession: true
+    international_reserves: 100000000
+    interest_rate: 0.40
+    central_bank_autonomy: 0.30
+    monetary_emission: 0.50
+    debt_to_gdp_ratio: 0.40
+    credit_rating: 8               # CC
+    tax_collection: 2000000000
+    mining_concessions: 0          # Cobre nacionalizado
+    state_royalties: 1500000000
+    foreign_trade: 0.40            # Bloqueado parcialmente por EEUU
+    food_import_dependency: 0.35
+  politics:
+    popularity: 0.43               # UP cayendo
+    auth_dem_axis: 0.20            # Demócrata
+    economic_ideology: 0.15        # Socialista
+    social_ideology: 0.35
+    authoritarianism_prob: 0.05
+    coup_d_etat_prob: 0.45         # Inminente
+    coup_success_prob: 0.75        # Ejército golpista
+    civilian_military_control: 0.40
+    administrative_corruption: 0.10
+    polarization_index: 0.92
+    revolution_prob: 0.25
+    judicial_independence: 0.70
+    press_freedom: 0.80
+    regime_legitimacy: 0.55
+    congressional_support: 0.40    # UP en minoría
+    opposition_seats: 60
+    active_scandals: 0
+    coalition_cohesion: 0.55       # MAPU vs comunistas vs socialistas
+  security:
+    troop_morale: 0.70
+    military_spending_gdp: 0.024
+    military_insubordination_prob: 0.40  # Tanquetazo en junio
+    non_state_groups: 3            # MIR + Patria y Libertad + Frente Manuel Rodríguez
+    invasion_prob: 0.02
+    diplomatic_prestige: 0.50
+    us_alignment: 0.10             # CIA conspirando
+    soft_power_index: 0.55         # Allende es ícono internacional
+    proximity_to_superpower: 0.15
+  infra:
+    pollution_prob: 0.30
+    co2_emissions: 25000000
+    fossil_fuel_dependency: 0.65
+    state_ai_development: 0.0
+    space_budget: 0.0
+    research_spending_gdp: 0.005
+    project_cybersyn: true         # Easter egg
+
+forced_events:
+  - turn: 3
+    event_id: "tanquetazo"
+    description_es: "Tanquetazo del 29 de junio"
+  - turn: 6
+    event_id: "paro_camionero_mayor"
+    description_es: "Segundo paro patronal de camioneros"
+  - turn: 8
+    event_id: "voto_diputados_destitucion"
+    description_es: "Cámara declara gobierno fuera de la legalidad"
+  - turn: 9
+    event_id: "11_septiembre"
+    description_es: "Golpe del 11 de septiembre (histórico)"
+
+available_actions_blacklist:
+  - swf_save
+  - hedge_prices
+  - state_ai
+  - tariff_dumping
+
+objectives:
+  bronce:
+    description_es: "Sobrevive más allá del 11 de septiembre (turno 9)"
+    description_en: "Survive past September 11 (turn 9)"
+  plata:
+    description_es: "Termina el mandato democráticamente (3 años más)"
+    description_en: "Complete term democratically (3 more years)"
+  oro:
+    description_es: "Termina con popularidad >50% sin armar al pueblo"
+    description_en: "End with popularity >50% without arming the people"
+  diamante:
+    description_es: "Triunfo en plebiscito Y inflación <50%"
+    description_en: "Plebiscite victory AND inflation <50%"
+
+historical_notes_es: |
+  - 11/9/1973: bombardeo de La Moneda, Allende se suicida (o lo asesinan).
+  - Pinochet gobierna hasta 1990. 3.197 desaparecidos confirmados.
+  - Plan económico de los Chicago Boys → milagro/desigualdad chilena.
+  - Caso de manual de Doctrina de Seguridad Nacional.
+  - Allende es ícono mundial de la vía democrática al socialismo.
+
+sources:
+  - "Patricio Aylwin, El reencuentro de los demócratas (1998)"
+  - "Tomás Moulian, Chile actual: anatomía de un mito (1997)"
+  - "Peter Kornbluh, The Pinochet File (2003)"

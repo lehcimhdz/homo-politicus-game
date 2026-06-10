@@ -1,0 +1,159 @@
+id: venezuela_2013
+version: 1
+name_es: "Venezuela 2013 — La herencia chavista"
+name_en: "Venezuela 2013 — The Chavista Inheritance"
+start_year: 2013
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  Marzo de 2013. Hugo Chávez muere de cáncer tras 14 años en el poder. Su sucesor designado,
+  Nicolás Maduro, asume con elecciones apretadas (1.5% de margen). El petróleo está a $100/barril
+  pero la economía depende casi totalmente de él. Inflación 56% anual, controles cambiarios,
+  desabastecimiento incipiente, polarización extrema, oposición liderada por Henrique Capriles.
+
+description_en: |
+  March 2013. Hugo Chávez dies of cancer after 14 years in power. His designated successor,
+  Nicolás Maduro, takes over with a narrow election (1.5% margin). Oil is at $100/barrel but
+  the economy depends almost entirely on it. 56% annual inflation, currency controls, incipient
+  shortages, extreme polarization, opposition led by Henrique Capriles.
+
+narrative_intro_es: |
+  Heredás un país petrolero con polarización al rojo vivo. Tenés la maquinaria chavista
+  todavía funcionando, pero sin el carisma del jefe. El precio del petróleo te sostiene...
+  por ahora. Hay tres caminos:
+
+  Mantener el modelo (controles + nacionalizaciones) y rezar que el petróleo no caiga.
+  Liberalizar gradualmente para evitar el colapso (te tildarán de traidor).
+  Doblar la apuesta autoritaria (cierre de oposición, militarización).
+
+  El precio del petróleo va a caer. La pregunta es cuándo, y vos cuán preparado estés.
+
+narrative_intro_en: |
+  You inherit an oil-rich country with red-hot polarization. The Chavista machinery is still
+  running, but without the chief's charisma. The oil price sustains you... for now. Three paths:
+
+  Keep the model (controls + nationalizations) and pray oil doesn't fall.
+  Gradually liberalize to avoid collapse (you'll be called a traitor).
+  Double down on authoritarianism (close opposition, militarize).
+
+  The oil price will fall. The question is when, and how prepared you are.
+
+initial_country:
+  welfare:
+    population: 30400000
+    poverty_rate: 0.27             # Subiendo
+    literacy_rate: 0.95
+    primary_enrollment: 0.95
+    secondary_enrollment: 0.75
+    university_enrollment: 0.78    # Misión Sucre infló cifras
+    health_coverage: 0.65          # Misión Barrio Adentro decayendo
+    unemployment_rate: 0.07        # Oficial; real ~12%
+    general_strike_prob: 0.20
+    torture_index: 0.15
+    forced_disappearances: 0.05
+    freedom_of_expression: 0.45
+    minority_protection: 0.55
+    un_score: 0.40
+  economy:
+    gdp: 372000000000
+    inflation: 0.56                # 56% anual, va a explotar
+    growth_rate: 0.013
+    international_reserves: 24000000000
+    interest_rate: 0.20
+    central_bank_autonomy: 0.10    # Capturado
+    monetary_emission: 0.40
+    debt_to_gdp_ratio: 0.55
+    credit_rating: 8               # CC
+    tax_collection: 35000000000
+    mining_concessions: 8          # Arco Minero
+    commodity_prices: 1.30         # Petróleo a $100
+    foreign_trade: 0.65
+    food_import_dependency: 0.80   # Crítico
+    energy_import_dependency: 0.05  # Productor neto
+  politics:
+    popularity: 0.51               # Maduro gana por 1.5%
+    auth_dem_axis: 0.65            # Hybrid → más autoritario
+    economic_ideology: 0.20        # Estatista
+    social_ideology: 0.30
+    authoritarianism_prob: 0.70
+    coup_d_etat_prob: 0.05
+    civilian_military_control: 0.40 # FANB integrada al chavismo
+    administrative_corruption: 0.75
+    polarization_index: 0.95
+    revolution_prob: 0.15
+    judicial_independence: 0.10    # TSJ chavista
+    press_freedom: 0.30
+    regime_legitimacy: 0.50
+    democratic_backsliding_index: 0.65
+    congressional_support: 0.55    # Asamblea oficialista por ahora
+    active_scandals: 1             # Heredados de Chávez
+    opposition_seats: 45
+  security:
+    troop_morale: 0.60             # Fragmentada
+    military_spending_gdp: 0.014
+    military_business_interests: 0.40  # Cártel de los Soles, PDVSA
+    non_state_groups: 5            # Colectivos armados + paramilitares
+    criminal_organizations: 4
+    homicide_rate: 53.7            # De las más altas del mundo
+    invasion_prob: 0.02
+    diplomatic_prestige: 0.35
+    us_alignment: 0.10             # Hostilidad
+    china_alignment: 0.65
+    non_aligned_index: 0.50
+    sanctions_active: false
+    sanctions_tier: 0
+  infra:
+    pollution_prob: 0.45
+    co2_emissions: 200000000
+    fossil_fuel_dependency: 0.95
+    renewables_percentage: 0.005
+    oil_gas_reserves: 300000000000  # Reservas más grandes del mundo
+    blackout_prob: 0.20            # Apagones empezando
+    internet_coverage: 0.55
+    state_ai_development: 0.0
+
+forced_events:
+  - turn: 6
+    event_id: "caida_precio_petroleo_2014"
+    description_es: "Petróleo cae de $100 a $40"
+  - turn: 12
+    event_id: "asamblea_2015"
+    description_es: "Oposición gana asamblea nacional"
+  - turn: 18
+    event_id: "hiperinflacion_inicio"
+    description_es: "Inflación supera 100% mensual"
+  - turn: 30
+    event_id: "sanciones_eeuu_2019"
+    description_es: "Sanciones petroleras de Trump"
+  - turn: 48
+    event_id: "exodo_migratorio"
+    description_es: "7 millones de venezolanos emigran"
+
+available_actions_blacklist: []
+
+objectives:
+  bronce:
+    description_es: "Sobrevive el primer año (4 turnos)"
+    description_en: "Survive first year (4 turns)"
+  plata:
+    description_es: "Mantén inflación bajo 100% durante 20 turnos"
+    description_en: "Keep inflation under 100% for 20 turns"
+  oro:
+    description_es: "Evita hiperinflación (inflación >50x anual)"
+    description_en: "Avoid hyperinflation (>50x annual inflation)"
+  diamante:
+    description_es: "Termina con popularidad >40% sin caída a credit rating D"
+    description_en: "End with popularity >40% without falling to credit rating D"
+
+historical_notes_es: |
+  - 2013-2019: hiperinflación llegó a 1.000.000% anual (mayor de la historia americana).
+  - 7+ millones emigraron, mayor crisis migratoria de las Américas.
+  - PIB cayó 75% acumulado (peor caída sin guerra en la historia económica).
+  - Maduro sigue en el poder en 2026 (predicción 2024).
+  - Reservas petroleras intactas pero infraestructura colapsada.
+
+sources:
+  - "Carlos Pagni, El Camino al Colapso (Venezuela series, 2023)"
+  - "Moisés Naím, Two Tribes (2022)"
+  - "Tomás Páez, La Voz de la Diáspora (2018)"

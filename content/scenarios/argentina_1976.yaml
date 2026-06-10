@@ -1,0 +1,154 @@
+id: argentina_1976
+version: 1
+name_es: "Argentina 1976 — La encrucijada"
+name_en: "Argentina 1976 — The Crossroads"
+start_year: 1976
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  Marzo de 1976. La presidenta Isabel Perón ha sido derrocada por una junta militar.
+  El país se encuentra en una crisis económica devastadora con inflación del 444% anual,
+  guerrilla activa (Montoneros, ERP) y polarización extrema. La sociedad está exhausta
+  tras tres años de violencia política, terrorismo de izquierda y derecha, y el caos
+  económico del Rodrigazo (1975).
+
+description_en: |
+  March 1976. President Isabel Perón has been overthrown by a military junta.
+  The country faces devastating economic crisis with 444% annual inflation, active
+  guerrillas (Montoneros, ERP) and extreme polarization. Society is exhausted after
+  three years of political violence, left and right terrorism, and economic chaos.
+
+narrative_intro_es: |
+  Sos parte de la junta militar que acaba de tomar el poder. Tenés tres caminos:
+  reprimir y consolidar el régimen (el camino histórico, con genocidio incluido),
+  convocar a elecciones rápidas devolviendo el poder a un peronismo moderado,
+  o intentar un proyecto militar reformista al estilo brasileño.
+
+  Cada decisión te perseguirá durante 30 años. La memoria histórica argentina no perdona.
+
+narrative_intro_en: |
+  You are part of the military junta that just seized power. You have three paths:
+  repress and consolidate the regime (the historical path, including genocide),
+  call quick elections returning power to moderate Peronism,
+  or attempt a Brazilian-style reformist military project.
+
+  Every decision will haunt you for 30 years. Argentine historical memory does not forgive.
+
+initial_country:
+  welfare:
+    population: 25800000
+    poverty_rate: 0.35
+    literacy_rate: 0.93
+    primary_enrollment: 0.95
+    secondary_enrollment: 0.60
+    university_enrollment: 0.20
+    health_coverage: 0.55
+    unemployment_rate: 0.04
+    general_strike_prob: 0.40
+    interreligious_tension: 0.05
+    radicalism_prob: 0.35
+    torture_index: 0.30           # Empieza alto (state terror activo)
+    forced_disappearances: 0.10   # Subirá rápido si elegís represión
+    freedom_of_expression: 0.20
+    minority_protection: 0.30
+    un_score: 0.40
+  economy:
+    gdp: 90000000000
+    inflation: 4.44               # 444% anual
+    growth_rate: -0.012
+    in_recession: true
+    recession_quarters: 6
+    international_reserves: 1500000000
+    interest_rate: 0.50
+    central_bank_autonomy: 0.20   # Capturado por gobierno militar
+    monetary_emission: 0.30
+    debt_to_gdp_ratio: 0.45
+    credit_rating: 8              # CC
+    tax_collection: 8000000000
+  politics:
+    popularity: 0.45              # Inicial: alivio post-Isabel
+    auth_dem_axis: 0.85           # Junta militar
+    economic_ideology: 0.70       # Empezará a virar a la derecha de Martínez de Hoz
+    social_ideology: 0.80         # Ultra-conservador
+    authoritarianism_prob: 0.95
+    coup_d_etat_prob: 0.10        # Ya ocurrió, pero contra-golpe posible
+    coup_success_prob: 0.30
+    civilian_military_control: 0.05
+    administrative_corruption: 0.45
+    polarization_index: 0.90
+    revolution_prob: 0.25
+    judicial_independence: 0.10
+    press_freedom: 0.05           # Censura militar
+    regime_legitimacy: 0.40
+    democratic_backsliding_index: 0.95
+    active_scandals: 0
+    congressional_support: 0.00   # Congreso disuelto
+  security:
+    troop_morale: 0.85
+    military_spending_gdp: 0.045
+    military_insubordination_prob: 0.05
+    non_state_groups: 4           # Montoneros, ERP, FAP, FAR
+    guerrilla_groups: 4
+    conflict_with_groups: 0.65
+    war_casualties: 5000
+    diplomatic_prestige: 0.30
+    us_alignment: 0.65            # Doctrina de Seguridad Nacional
+    soft_power_index: 0.20
+  infra:
+    pollution_prob: 0.30
+    co2_emissions: 80000000
+    internet_coverage: 0.00       # No existe
+    state_ai_development: 0.00    # No existe
+    space_budget: 0.0
+
+forced_events:
+  - turn: 1
+    event_id: "ley_22068_intervencion_universidades"
+    description_es: "Intervención de las universidades nacionales"
+  - turn: 3
+    event_id: "plan_martinez_de_hoz"
+    description_es: "Ministro de Economía presenta plan de apertura"
+  - turn: 8
+    event_id: "mundial_1978"
+    description_es: "Argentina organiza el Mundial de Fútbol"
+  - turn: 24
+    event_id: "guerra_malvinas"
+    description_es: "Disputa con Reino Unido por las Malvinas"
+
+available_actions_blacklist:
+  - swf_save                      # No existe SWF en 1976
+  - hedge_prices                  # No hay instrumentos
+  - geo_survey                    # Ya hechos los principales
+  - state_ai                      # No existe AI
+
+objectives:
+  bronce:
+    description_es: "Sobrevive 12 turnos (3 años) sin perder el poder"
+    description_en: "Survive 12 turns (3 years) without losing power"
+    condition: "turn >= 12 AND end_condition == NONE"
+  plata:
+    description_es: "Termina con popularidad >40% y sin más de 1000 desaparecidos"
+    description_en: "End with popularity >40% and fewer than 1000 disappearances"
+    condition: "popularity >= 0.4 AND forced_disappearances_total < 1000"
+  oro:
+    description_es: "Convocá elecciones libres antes del turno 24 y entregá el poder pacíficamente"
+    description_en: "Call free elections before turn 24 and transfer power peacefully"
+    condition: "elections_called BEFORE turn 24 AND end_condition == TERM_COMPLETED"
+  diamante:
+    description_es: "Lográ un milagro económico (inflación <20%, crecimiento >3%) sin desaparecidos"
+    description_en: "Achieve economic miracle (inflation <20%, growth >3%) without disappearances"
+    condition: "inflation < 0.20 AND growth_rate > 0.03 AND forced_disappearances_total == 0"
+
+historical_notes_es: |
+  - La junta militar real (1976-1983) dejó ~30.000 desaparecidos, hiperinflación
+    final del 433% mensual (1989), default soberano, derrota en Malvinas, y un
+    impacto traumático en la memoria social todavía vigente.
+  - Martínez de Hoz aplicó apertura y financierización que destruyó la industria.
+  - El Mundial 78 fue usado como cortina propagandística.
+  - El régimen colapsó tras la derrota de Malvinas; Alfonsín ganó en 1983.
+
+sources:
+  - "Nunca Más (CONADEP, 1984)"
+  - "Robert Cox, Dirty Secrets, Dirty War (2008)"
+  - "Marcos Novaro & Vicente Palermo, La dictadura militar 1976-1983 (2003)"

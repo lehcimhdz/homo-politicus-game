@@ -1,0 +1,152 @@
+id: cuba_1959
+version: 1
+name_es: "Cuba 1959 — La revolución en el poder"
+name_en: "Cuba 1959 — The Revolution in Power"
+start_year: 1959
+start_turn: 0
+difficulty: "★★★★★"
+
+description_es: |
+  1 de enero de 1959. Batista huye. El Movimiento 26 de Julio entra triunfal a La Habana.
+  La isla está en euforia popular pero con economía dominada por capitales estadounidenses,
+  azúcar como monocultivo, mafia controlando casinos, y una sociedad profundamente desigual.
+  La Guerra Fría está en su clímax.
+
+description_en: |
+  January 1, 1959. Batista flees. The 26th of July Movement triumphantly enters Havana.
+  The island is in popular euphoria but with US-dominated economy, sugar monoculture,
+  mob-controlled casinos, and a deeply unequal society. The Cold War is at its peak.
+
+narrative_intro_es: |
+  La revolución triunfó. Tenés popularidad estratosférica y un país que querés transformar.
+  Pero EEUU vigila cada movimiento; cualquier nacionalización puede traerte invasión.
+  La URSS te tienta con apoyo, a cambio de alinearte completamente en su bloque.
+
+  ¿Vas hasta el fondo en la revolución (socialismo + alineación URSS)?
+  ¿Mantenés una vía nacionalista intermedia (estilo PRI mexicano)?
+  ¿O convertís Cuba en una socialdemocracia escandinava del Caribe?
+
+narrative_intro_en: |
+  The revolution triumphed. You have stratospheric popularity and a country to transform.
+  But the US watches every move; any nationalization can bring invasion.
+  The USSR tempts you with support, in exchange for full alignment with its bloc.
+
+  Do you go all-in on revolution (socialism + USSR alignment)?
+  Keep an intermediate nationalist path (Mexican PRI style)?
+  Or turn Cuba into a Caribbean Scandinavian social-democracy?
+
+initial_country:
+  welfare:
+    population: 6900000
+    poverty_rate: 0.55
+    literacy_rate: 0.76
+    primary_enrollment: 0.55
+    secondary_enrollment: 0.18
+    university_enrollment: 0.03
+    health_coverage: 0.25          # Muy desigual rural/urbano
+    unemployment_rate: 0.25        # Subempleo masivo en zafra
+    interreligious_tension: 0.10
+    torture_index: 0.0             # Régimen anterior eliminado
+    freedom_of_expression: 0.80
+    minority_protection: 0.40      # Discriminación afrocubana real
+    un_score: 0.50
+    aging_index: 0.20
+    diaspora_population: 50000
+  economy:
+    gdp: 2500000000
+    inflation: 0.03
+    growth_rate: 0.045
+    in_recession: false
+    international_reserves: 100000000
+    interest_rate: 0.04
+    debt_to_gdp_ratio: 0.30
+    credit_rating: 4               # BB
+    tax_collection: 200000000
+    mining_concessions: 3
+    foreign_trade: 0.85            # Altamente dependiente de EEUU
+    import_dependency: 0.70
+    food_import_dependency: 0.45
+  politics:
+    popularity: 0.85               # Euforia revolucionaria
+    auth_dem_axis: 0.50            # Por definirse
+    economic_ideology: 0.40        # Por definirse, tendencia izquierda
+    social_ideology: 0.40
+    authoritarianism_prob: 0.40
+    coup_d_etat_prob: 0.05         # Acaba de ganar uno
+    civilian_military_control: 0.90  # Ejército revolucionario leal
+    administrative_corruption: 0.15  # Bajo inicialmente
+    polarization_index: 0.45
+    revolution_prob: 0.0
+    judicial_independence: 0.30    # Tribunales revolucionarios
+    press_freedom: 0.65
+    regime_legitimacy: 0.85
+    democratic_backsliding_index: 0.30
+    congressional_support: 0.00    # No hay congreso aún
+    active_scandals: 0
+    economic_ideology: 0.40
+  security:
+    troop_morale: 0.95             # Acaban de ganar
+    military_spending_gdp: 0.025
+    non_state_groups: 1            # Resistencia anti-revolución potencial
+    invasion_prob: 0.30            # Bahía de Cochinos viene
+    nuclear_attack_prob: 0.0       # Antes de los misiles
+    diplomatic_prestige: 0.55
+    proximity_to_superpower: 0.95  # Cuba-USA están a 145km
+    us_alignment: 0.30             # Hostilidad creciente
+    china_alignment: 0.10
+    non_aligned_index: 0.60
+  infra:
+    pollution_prob: 0.20
+    co2_emissions: 5000000
+    internet_coverage: 0.0
+    state_ai_development: 0.0
+    fossil_fuel_dependency: 0.90
+    renewables_percentage: 0.01
+    space_budget: 0.0
+    research_spending_gdp: 0.005
+
+forced_events:
+  - turn: 4
+    event_id: "ruptura_diplomatica_eeuu"
+    description_es: "EEUU rompe relaciones diplomáticas"
+  - turn: 8
+    event_id: "bahia_cochinos"
+    description_es: "Invasión de Bahía de Cochinos"
+  - turn: 15
+    event_id: "crisis_misiles_cubanos"
+    description_es: "Crisis de los misiles cubanos"
+  - turn: 60
+    event_id: "periodo_especial"
+    description_es: "Colapso URSS y comienzo del Período Especial"
+
+available_actions_blacklist:
+  - swf_save
+  - hedge_prices
+  - state_ai
+  - tariff_dumping
+
+objectives:
+  bronce:
+    description_es: "Sobrevive 12 turnos sin invasión exitosa"
+    description_en: "Survive 12 turns without successful invasion"
+  plata:
+    description_es: "Mantén legitimidad >0.6 durante 24 turnos"
+    description_en: "Keep legitimacy >0.6 for 24 turns"
+  oro:
+    description_es: "Alcanza salud >0.85 Y educación >0.85 (revolución completa)"
+    description_en: "Reach health >0.85 AND education >0.85 (full revolution)"
+  diamante:
+    description_es: "Lográ todo lo anterior + economía abierta (trade_balance >0)"
+    description_en: "Achieve all above + open economy (trade_balance >0)"
+
+historical_notes_es: |
+  - Cuba real: educación y salud excelentes, economía colapsada por bloqueo + monocultivo.
+  - 1961: alfabetización completa en un año (campaña épica).
+  - 1962: crisis de los misiles, casi WWIII.
+  - 1991: colapso URSS → Período Especial: -35% PIB, hambre real.
+  - 2008-2026: liberalizaciones graduales, emigración masiva.
+
+sources:
+  - "Tad Szulc, Fidel: A Critical Portrait (1986)"
+  - "Hugh Thomas, Cuba: The Pursuit of Freedom (1971)"
+  - "Richard Gott, Cuba: A New History (2004)"

@@ -1,0 +1,180 @@
+id: singapur_1965
+version: 1
+name_es: "Singapur 1965 — Independencia forzada"
+name_en: "Singapore 1965 — Forced Independence"
+start_year: 1965
+start_turn: 0
+difficulty: "★★★★☆"
+
+description_es: |
+  9 de agosto de 1965. Singapur es expulsado de la Federación Malaya. Sos Lee Kuan Yew,
+  un líder visiblemente angustiado en cámara: heredás una ciudad-estado sin recursos naturales,
+  sin agua potable propia, con 1.9 millones de habitantes (75% chinos, 15% malayos, 10% indios),
+  rodeada de vecinos hostiles (Indonesia bajo Sukarno), pobreza endémica, tensión racial,
+  y un PIB per cápita de $516. Tenés 600 km² para convertir en un país.
+
+description_en: |
+  August 9, 1965. Singapore is expelled from the Malay Federation. You are Lee Kuan Yew,
+  a visibly anguished leader on camera: you inherit a city-state without natural resources,
+  without its own potable water, 1.9 million inhabitants (75% Chinese, 15% Malay, 10% Indian),
+  surrounded by hostile neighbors (Indonesia under Sukarno), endemic poverty, racial tension,
+  and a per-capita GDP of $516. You have 600 km² to turn into a country.
+
+narrative_intro_es: |
+  Tenés meses, no años, para sobrevivir como país. Sin recursos, dependés de los servicios:
+  puerto, finanzas, manufactura ligera. Tres ejes para decidir:
+
+  - Estilo de gobernanza: autoritarismo benevolente (el camino histórico) o democracia plena.
+  - Modelo económico: capitalismo estatal con tecnócratas, o mercado libre puro.
+  - Política étnica: meritocracia ciega al color, o cuotas para evitar conflicto racial.
+
+  En 60 años, Singapur pasó de $516 a $90.000 PIB per cápita. ¿Podés replicarlo?
+
+narrative_intro_en: |
+  You have months, not years, to survive as a country. Without resources, you depend on services:
+  port, finance, light manufacturing. Three axes to decide:
+
+  - Governance style: benevolent authoritarianism (historical path) or full democracy.
+  - Economic model: state capitalism with technocrats, or pure free market.
+  - Ethnic policy: color-blind meritocracy, or quotas to avoid racial conflict.
+
+  In 60 years Singapore went from $516 to $90,000 GDP per capita. Can you replicate it?
+
+initial_country:
+  welfare:
+    population: 1900000
+    poverty_rate: 0.70
+    literacy_rate: 0.50
+    primary_enrollment: 0.65
+    secondary_enrollment: 0.20
+    university_enrollment: 0.01
+    health_coverage: 0.30
+    unemployment_rate: 0.14
+    general_strike_prob: 0.30
+    interreligious_tension: 0.55   # Race riots de 1964 frescos
+    radicalism_prob: 0.20
+    torture_index: 0.10
+    freedom_of_expression: 0.55
+    minority_protection: 0.50
+    un_score: 0.55
+    aging_index: 0.10              # Muy joven
+    population_density: 3167.0     # km², ya altísimo
+    land_area: 600.0
+    urban_population_ratio: 1.00   # 100% urbano
+    diaspora_population: 5000
+  economy:
+    gdp: 974000000                 # $516 per cápita × 1.9M
+    inflation: 0.04
+    growth_rate: 0.065
+    international_reserves: 200000000
+    interest_rate: 0.05
+    central_bank_autonomy: 0.50
+    monetary_emission: 0.02
+    debt_to_gdp_ratio: 0.05
+    credit_rating: 3               # BBB
+    tax_collection: 150000000
+    foreign_trade: 1.85            # Trade > GDP (entrepôt)
+    trade_openness: 2.00
+    average_tariffs: 0.04
+    food_import_dependency: 0.95   # Casi todo importado
+    energy_import_dependency: 1.00
+    medicine_import_dependency: 0.95
+    annual_visitors: 100000
+  politics:
+    popularity: 0.60               # Goodwill por independencia
+    auth_dem_axis: 0.55            # Hybrid, autoritario suave
+    economic_ideology: 0.55        # Capitalista pragmático
+    social_ideology: 0.65          # Conservador
+    authoritarianism_prob: 0.30
+    coup_d_etat_prob: 0.05
+    civilian_military_control: 0.65  # No hay ejército propio aún
+    administrative_corruption: 0.30  # Heredada, hay que limpiar
+    anticorruption_enforcement: 0.40
+    polarization_index: 0.60       # Étnica
+    revolution_prob: 0.05
+    judicial_independence: 0.65    # Common law heredado
+    press_freedom: 0.55
+    regime_legitimacy: 0.70
+    democratic_backsliding_index: 0.20
+    congressional_support: 0.85    # PAP dominante
+    opposition_seats: 7
+    active_scandals: 0
+  security:
+    troop_morale: 0.50
+    military_spending_gdp: 0.005   # Sin ejército propio
+    non_state_groups: 1            # Comunistas Barisan Sosialis
+    invasion_prob: 0.25            # Konfrontasi indonesia
+    diplomatic_prestige: 0.30
+    proximity_to_superpower: 0.40
+    us_alignment: 0.60
+    china_alignment: 0.20
+    non_aligned_index: 0.50
+    soft_power_index: 0.15
+    hostile_neighbors: 2           # Indonesia + Malasia tensa
+    territorial_dispute_intensity: 0.35
+  infra:
+    pollution_prob: 0.40
+    co2_emissions: 1500000
+    fossil_fuel_dependency: 1.00
+    renewables_percentage: 0.0
+    oil_gas_reserves: 0            # Cero
+    blackout_prob: 0.05
+    internet_coverage: 0.0
+    state_ai_development: 0.0
+    potable_water_access: 0.45     # Depende de Malasia
+    water_stress_index: 0.95       # Crítico
+    port_capacity: 0.65            # Heredado británico, ventaja clave
+    road_connectivity: 0.50
+    research_spending_gdp: 0.002
+    investment_climate_index: 0.55
+
+forced_events:
+  - turn: 1
+    event_id: "konfrontasi_fin"
+    description_es: "Fin de la Konfrontasi indonesia"
+  - turn: 6
+    event_id: "retirada_britanica_este_suez"
+    description_es: "Reino Unido retira tropas del este de Suez"
+  - turn: 10
+    event_id: "shock_petrolero_1973"
+    description_es: "Crisis del petróleo de 1973"
+  - turn: 25
+    event_id: "crisis_asiatica_1997"
+    description_es: "Crisis financiera asiática"
+  - turn: 36
+    event_id: "sars_2003"
+    description_es: "Brote de SARS"
+
+available_actions_blacklist:
+  - mining+
+  - mining-
+  - mining_reform
+  - royalty+
+  - royalty-
+
+objectives:
+  bronce:
+    description_es: "Sobrevive como país independiente 12 turnos"
+    description_en: "Survive as independent country for 12 turns"
+  plata:
+    description_es: "PIB per cápita > $5.000 en 20 turnos"
+    description_en: "GDP per capita > $5,000 in 20 turns"
+  oro:
+    description_es: "PIB per cápita > $10.000 + corrupción < 10%"
+    description_en: "GDP per capita > $10,000 + corruption < 10%"
+  diamante:
+    description_es: "PIB per cápita > $50.000 manteniendo régimen democrático"
+    description_en: "GDP per capita > $50,000 keeping democratic regime"
+
+historical_notes_es: |
+  - Lee Kuan Yew gobernó 1959-1990. PAP gobierna sin interrupción hasta 2026.
+  - 1965: $516 PIB per cápita. 2024: $90.000 (uno de los más altos del mundo).
+  - Política étnica con cuotas en viviendas evitó segregación.
+  - Anti-corrupción brutal: CPIB con poder de arresto sin orden judicial.
+  - Castigos corporales legales (azotes con caña). Pena de muerte por drogas.
+  - Singapur en 2026 es el único caso documentado de "salto del Tercer al Primer Mundo".
+
+sources:
+  - "Lee Kuan Yew, From Third World to First (2000)"
+  - "Cherian George, Singapore: The Air-Conditioned Nation (2000)"
+  - "Mauzy & Milne, Singapore Politics under the PAP (2002)"
